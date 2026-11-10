@@ -1,0 +1,173 @@
+{
+  "claim": "catreplay",
+  "claim_key": 308,
+  "ticket": "VCC-1486",
+  "rules_source": "CTA-5007-B §4.6.6",
+  "cases": [
+    {
+      "id": "CATREPLAY-ACC-01",
+      "title": "Replay permitted (0), first use",
+      "category": "accept",
+      "claims_edn": "{308: 0}",
+      "expected": {
+        "access": "accept",
+        "basis": "MUST NOT",
+        "spec_ref": "CTA-5007-B §4.6.6",
+        "reason": "Value 0: recipients MUST NOT reject on account of reuse."
+      }
+    },
+    {
+      "id": "CATREPLAY-ACC-02",
+      "title": "Replay permitted (0), token already used",
+      "category": "accept",
+      "claims_edn": "{308: 0}",
+      "request": {
+        "cti_seen_before": true
+      },
+      "expected": {
+        "access": "accept",
+        "basis": "MUST NOT",
+        "spec_ref": "CTA-5007-B §4.6.6",
+        "reason": "Value 0: recipients MUST NOT reject a token whose cti has already been used."
+      }
+    },
+    {
+      "id": "CATREPLAY-ACC-03",
+      "title": "Replay prohibited (1), first use",
+      "category": "accept",
+      "claims_edn": "{308: 1}",
+      "expected": {
+        "access": "accept",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.6",
+        "reason": "Value 1 is defined; nothing to reject on first use."
+      }
+    },
+    {
+      "id": "CATREPLAY-ACC-04",
+      "title": "Reuse detection (2), first use",
+      "category": "accept",
+      "claims_edn": "{308: 2}",
+      "expected": {
+        "access": "accept",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.6",
+        "reason": "Value 2 is defined; nothing to reject on first use."
+      }
+    },
+    {
+      "id": "CATREPLAY-UND-01",
+      "title": "Replay prohibited (1), token already used",
+      "category": "undefined",
+      "claims_edn": "{308: 1}",
+      "request": {
+        "cti_seen_before": true
+      },
+      "expected": {
+        "access": "undefined",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.6.6",
+        "reason": "Value 1: recipients MAY reject a reused token. Reuse tracking is done outside VCL, so no VCL pass/fail is asserted."
+      }
+    },
+    {
+      "id": "CATREPLAY-UND-02",
+      "title": "Reuse detection (2), token already used",
+      "category": "undefined",
+      "claims_edn": "{308: 2}",
+      "request": {
+        "cti_seen_before": true
+      },
+      "expected": {
+        "access": "undefined",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.6.6",
+        "reason": "Value 2: recipient MAY use implementation-defined reuse detection. Tracking is outside VCL."
+      }
+    },
+    {
+      "id": "CATREPLAY-UND-03",
+      "title": "Value 3 (undefined)",
+      "category": "undefined",
+      "claims_edn": "{308: 3}",
+      "expected": {
+        "access": "undefined",
+        "basis": "undefined",
+        "spec_ref": "CTA-5007-B §4.6.6",
+        "reason": "'If the value is not one of these, recipient behavior is undefined.' Well-formed (uint .gt 2); behaviour is implementation-defined."
+      }
+    },
+    {
+      "id": "CATREPLAY-UND-04",
+      "title": "Largest uint (2^64-1)",
+      "category": "undefined",
+      "claims_edn": "{308: 18446744073709551615}",
+      "expected": {
+        "access": "undefined",
+        "basis": "undefined",
+        "spec_ref": "CTA-5007-B §4.6.6",
+        "reason": "uint .gt 2: behaviour undefined. Also exercises 64-bit integer handling."
+      }
+    },
+    {
+      "id": "CATREPLAY-MAL-01",
+      "title": "Text string instead of uint",
+      "category": "malformed",
+      "claims_edn": "{308: \"1\"}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.6; §4.3.1.2",
+        "reason": "catreplay-value is uint; a syntax error makes the token not valid, hence not acceptable."
+      }
+    },
+    {
+      "id": "CATREPLAY-MAL-02",
+      "title": "Negative integer",
+      "category": "malformed",
+      "claims_edn": "{308: -1}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.6; §4.3.1.2",
+        "reason": "catreplay-value is uint; -1 is not a uint."
+      }
+    },
+    {
+      "id": "CATREPLAY-MAL-03",
+      "title": "Float 1.0 instead of uint",
+      "category": "malformed",
+      "claims_edn": "{308: 1.0}",
+      "expected": {
+        "access": "reject",
+        "basis": "interpretation",
+        "spec_ref": "CTA-5007-B §4.6.6; §4.5",
+        "reason": "Read as a type error: the claim type is unsigned integer and a float is not a uint. Alternative reading: §4.5 gives numbers only their numeric meaning, making this an encoding defect (MAY reject). Confirm."
+      }
+    },
+    {
+      "id": "CATREPLAY-MAL-04",
+      "title": "Tagged value 1(1)",
+      "category": "malformed",
+      "claims_edn": "{308: 1(1)}",
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.6; §4.5",
+        "reason": "'Recipients MUST reject a claim set containing a claim with a value that is improperly tagged.'"
+      }
+    },
+    {
+      "id": "CATREPLAY-ENC-01",
+      "title": "Value 1 encoded non-shortest (0x1801)",
+      "category": "encoding",
+      "claims_edn": "{308: 1_0}",
+      "expected": {
+        "access": "undefined",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.5",
+        "reason": "Not deterministically encoded; §4.5: such a CAT MAY be treated as ill-formed."
+      }
+    }
+  ]
+}

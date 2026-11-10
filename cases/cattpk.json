@@ -1,0 +1,299 @@
+{
+  "claim": "cattpk",
+  "claim_key": 319,
+  "ticket": "VCC-1402",
+  "rules_source": "CTA-5007-B §4.6.18 (value: DER SubjectPublicKeyInfo; test keys in certs/)",
+  "cases": [
+    {
+      "id": "CATTPK-ACC-01",
+      "title": "Leaf SPKI, chain [leaf, intermediate]",
+      "category": "accept",
+      "claims_edn": "{319: h'${spki:client}'}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [
+            "client",
+            "intermediate"
+          ],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "mtls"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.18",
+        "reason": "A certificate in the client chain matches."
+      }
+    },
+    {
+      "id": "CATTPK-ACC-02",
+      "title": "Intermediate SPKI, chain [leaf, intermediate]",
+      "category": "accept",
+      "claims_edn": "{319: h'${spki:intermediate}'}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [
+            "client",
+            "intermediate"
+          ],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "mtls"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "interpretation",
+        "spec_ref": "CTA-5007-B §4.6.18",
+        "reason": "'present a certificate chain that contains a certificate that matches' - the intermediate is in the presented chain. Whether the chain must also validate is not stated; see CATTPK-UND-01."
+      }
+    },
+    {
+      "id": "CATTPK-REJ-01",
+      "title": "Unrelated key",
+      "category": "reject",
+      "claims_edn": "{319: h'${spki:other}'}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [
+            "client",
+            "intermediate"
+          ],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "mtls"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.18",
+        "reason": "No certificate in the chain matches: MUST reject."
+      }
+    },
+    {
+      "id": "CATTPK-ACC-03",
+      "title": "Intermediate SPKI, chain [other leaf, intermediate]",
+      "category": "accept",
+      "claims_edn": "{319: h'${spki:intermediate}'}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [
+            "other",
+            "intermediate"
+          ],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "mtls"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "interpretation",
+        "spec_ref": "CTA-5007-B §4.6.18",
+        "reason": "A different valid leaf under the same intermediate: the presented chain contains the matching intermediate."
+      }
+    },
+    {
+      "id": "CATTPK-UND-01",
+      "title": "Intermediate SPKI, chain [self-signed leaf, intermediate] (chain does not validate)",
+      "category": "undefined",
+      "claims_edn": "{319: h'${spki:intermediate}'}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [
+            "selfsigned",
+            "intermediate"
+          ],
+          "chain_validates": false,
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "mtls"
+      ],
+      "expected": {
+        "access": "undefined",
+        "basis": "interpretation",
+        "spec_ref": "CTA-5007-B §4.6.18",
+        "reason": "Anyone can append a public intermediate to the chain they send. §4.6.18 does not say whether the chain must validate. Expected result needs a Fastly decision."
+      }
+    },
+    {
+      "id": "CATTPK-REJ-02",
+      "title": "Leaf SPKI, TLS without client certificate",
+      "category": "reject",
+      "claims_edn": "{319: h'${spki:client}'}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "mtls"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.18",
+        "reason": "Connection's client chain does not contain a match."
+      }
+    },
+    {
+      "id": "CATTPK-REJ-03",
+      "title": "Root SPKI, root not presented",
+      "category": "reject",
+      "claims_edn": "{319: h'${spki:root}'}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [
+            "client",
+            "intermediate"
+          ],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "mtls"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "interpretation",
+        "spec_ref": "CTA-5007-B §4.6.18",
+        "reason": "Reads 'client certificate chain' as the chain the client presented ([leaf, intermediate], no root). A server-built verified chain would include the root. Confirm."
+      }
+    },
+    {
+      "id": "CATTPK-REJ-04",
+      "title": "SHA-256 of leaf SPKI instead of SPKI",
+      "category": "reject",
+      "claims_edn": "{319: h'${sha256:client}'}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [
+            "client",
+            "intermediate"
+          ],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "mtls"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.18",
+        "reason": "Well-formed bstr, but it is a hash, not a DER SPKI, so it matches no certificate."
+      }
+    },
+    {
+      "id": "CATTPK-REJ-05",
+      "title": "Leaf SPKI over plain HTTP",
+      "category": "reject",
+      "claims_edn": "{319: h'${spki:client}'}",
+      "request": {
+        "tls": null
+      },
+      "needs": [
+        "plaintext"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "interpretation",
+        "spec_ref": "CTA-5007-B §4.6.18",
+        "reason": "First sentence: the claim 'limits access to only clients that present a certificate chain that contains a certificate that matches'. The MUST sentence only names TLS/QUIC, so this result is an interpretation - confirm."
+      }
+    },
+    {
+      "id": "CATTPK-MAL-01",
+      "title": "Text (base64 of SPKI)",
+      "category": "malformed",
+      "claims_edn": "{319: \"${spki_b64:client}\"}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [
+            "client",
+            "intermediate"
+          ],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "mtls"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.18; §4.3.1.2",
+        "reason": "cattpk-value = bstr."
+      }
+    },
+    {
+      "id": "CATTPK-MAL-02",
+      "title": "Array of bstr",
+      "category": "malformed",
+      "claims_edn": "{319: [h'${spki:client}']}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [
+            "client",
+            "intermediate"
+          ],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "mtls"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.18; §4.3.1.2",
+        "reason": "cattpk-value = bstr, not an array."
+      }
+    },
+    {
+      "id": "CATTPK-MAL-03",
+      "title": "Tagged bstr",
+      "category": "malformed",
+      "claims_edn": "{319: 24(h'${spki:client}')}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [
+            "client",
+            "intermediate"
+          ],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "mtls"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.5",
+        "reason": "Improperly tagged claim value MUST be rejected."
+      }
+    }
+  ]
+}

@@ -1,0 +1,6374 @@
+{
+  "tokens": 151,
+  "failures": 0,
+  "rustcat_checked": false,
+  "rustcat_verify_claims_disagreements": [],
+  "results": [
+    {
+      "id": "CATALPN-ACC-01",
+      "claim": "catalpn",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catalpn: ALPN listed"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catalpn: ALPN listed']"
+        }
+      }
+    },
+    {
+      "id": "CATALPN-ACC-02",
+      "claim": "catalpn",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catalpn: ALPN listed"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catalpn: ALPN listed']"
+        }
+      }
+    },
+    {
+      "id": "CATALPN-ACC-03",
+      "claim": "catalpn",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[]"
+        }
+      }
+    },
+    {
+      "id": "CATALPN-ACC-04",
+      "claim": "catalpn",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catalpn: ALPN listed"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catalpn: ALPN listed']"
+        }
+      }
+    },
+    {
+      "id": "CATALPN-REJ-01",
+      "claim": "catalpn",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catalpn: ALPN 'http/1.1' not listed (byte-wise)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=[\"catalpn: ALPN 'http/1.1' not listed (byte-wise)\"]"
+        }
+      }
+    },
+    {
+      "id": "CATALPN-REJ-02",
+      "claim": "catalpn",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catalpn: request not over TLS (MUST reject)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['catalpn: request not over TLS (MUST reject)']"
+        }
+      }
+    },
+    {
+      "id": "CATALPN-REJ-03",
+      "claim": "catalpn",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catalpn: ALPN not determined (MUST reject)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['catalpn: ALPN not determined (MUST reject)']"
+        }
+      }
+    },
+    {
+      "id": "CATALPN-REJ-04",
+      "claim": "catalpn",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catalpn: ALPN 'h2' not listed (byte-wise)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=[\"catalpn: ALPN 'h2' not listed (byte-wise)\"]"
+        }
+      }
+    },
+    {
+      "id": "CATALPN-REJ-05",
+      "claim": "catalpn",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catalpn: ALPN 'h2' not listed (byte-wise)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=[\"catalpn: ALPN 'h2' not listed (byte-wise)\"]"
+        }
+      }
+    },
+    {
+      "id": "CATALPN-REJ-06",
+      "claim": "catalpn",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catalpn: ALPN 'h2' not listed (byte-wise)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=[\"catalpn: ALPN 'h2' not listed (byte-wise)\"]"
+        }
+      }
+    },
+    {
+      "id": "CATALPN-UND-01",
+      "claim": "catalpn",
+      "category": "undefined",
+      "ok": true,
+      "evaluator": {
+        "access": "undefined",
+        "probability": null,
+        "reasons": [
+          "catalpn: 51 members > 50; recipient MAY treat as invalid"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=undefined expected=undefined reasons=['catalpn: 51 members > 50; recipient MAY treat as invalid']"
+        }
+      }
+    },
+    {
+      "id": "CATALPN-MAL-01",
+      "claim": "catalpn",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catalpn members must be bstr"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catalpn members must be bstr']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catalpn members must be bstr']"
+        }
+      }
+    },
+    {
+      "id": "CATALPN-MAL-02",
+      "claim": "catalpn",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catalpn must have at least one member ([ + bstr ])"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catalpn must have at least one member ([ + bstr ])']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catalpn must have at least one member ([ + bstr ])']"
+        }
+      }
+    },
+    {
+      "id": "CATALPN-MAL-03",
+      "claim": "catalpn",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catalpn must be an array"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catalpn must be an array']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catalpn must be an array']"
+        }
+      }
+    },
+    {
+      "id": "CATALPN-MAL-04",
+      "claim": "catalpn",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: value is tagged (tag 41); §4.5 forbids tags on this claim"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['value is tagged (tag 41); §4.5 forbids tags on this claim']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: value is tagged (tag 41); §4.5 forbids tags on this claim']"
+        }
+      }
+    },
+    {
+      "id": "CATM-ACC-01",
+      "claim": "catm",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catm: method listed"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catm: method listed']"
+        }
+      }
+    },
+    {
+      "id": "CATM-ACC-02",
+      "claim": "catm",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catm: method listed"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catm: method listed']"
+        }
+      }
+    },
+    {
+      "id": "CATM-ACC-03",
+      "claim": "catm",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[]"
+        }
+      }
+    },
+    {
+      "id": "CATM-ACC-04",
+      "claim": "catm",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catm: method listed"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catm: method listed']"
+        }
+      }
+    },
+    {
+      "id": "CATM-ACC-05",
+      "claim": "catm",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catm: method listed"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catm: method listed']"
+        }
+      }
+    },
+    {
+      "id": "CATM-REJ-01",
+      "claim": "catm",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catm: method 'POST' not listed (case-sensitive)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=[\"catm: method 'POST' not listed (case-sensitive)\"]"
+        }
+      }
+    },
+    {
+      "id": "CATM-REJ-02",
+      "claim": "catm",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catm: method 'GET' not listed (case-sensitive)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=[\"catm: method 'GET' not listed (case-sensitive)\"]"
+        }
+      }
+    },
+    {
+      "id": "CATM-REJ-03",
+      "claim": "catm",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catm: method 'OPTIONS' not listed (case-sensitive)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=[\"catm: method 'OPTIONS' not listed (case-sensitive)\"]"
+        }
+      }
+    },
+    {
+      "id": "CATM-REJ-05",
+      "claim": "catm",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catm: method 'get' not listed (case-sensitive)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=[\"catm: method 'get' not listed (case-sensitive)\"]"
+        }
+      }
+    },
+    {
+      "id": "CATM-REJ-04",
+      "claim": "catm",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catm: method 'GET' not listed (case-sensitive)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=[\"catm: method 'GET' not listed (case-sensitive)\"]"
+        }
+      }
+    },
+    {
+      "id": "CATM-UND-01",
+      "claim": "catm",
+      "category": "undefined",
+      "ok": true,
+      "evaluator": {
+        "access": "undefined",
+        "probability": null,
+        "reasons": [
+          "catm: 51 members > 50; recipient MAY treat as invalid"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=undefined expected=undefined reasons=['catm: 51 members > 50; recipient MAY treat as invalid']"
+        }
+      }
+    },
+    {
+      "id": "CATM-MAL-01",
+      "claim": "catm",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catm must have at least one member ([ + tstr ])"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catm must have at least one member ([ + tstr ])']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catm must have at least one member ([ + tstr ])']"
+        }
+      }
+    },
+    {
+      "id": "CATM-MAL-02",
+      "claim": "catm",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catm members must be tstr"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catm members must be tstr']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catm members must be tstr']"
+        }
+      }
+    },
+    {
+      "id": "CATM-MAL-03",
+      "claim": "catm",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catm must be an array"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catm must be an array']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catm must be an array']"
+        }
+      }
+    },
+    {
+      "id": "CATM-MAL-04",
+      "claim": "catm",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catm members must be tstr"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catm members must be tstr']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catm members must be tstr']"
+        }
+      }
+    },
+    {
+      "id": "CATM-MAL-05",
+      "claim": "catm",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: value is tagged (tag 41); §4.5 forbids tags on this claim"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['value is tagged (tag 41); §4.5 forbids tags on this claim']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: value is tagged (tag 41); §4.5 forbids tags on this claim']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-ACC-01",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catnetprint: type and value match"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catnetprint: type and value match']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-ACC-03",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[]"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-ACC-02",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catnetprint: type and value match"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catnetprint: type and value match']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-00",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catnetprint: type and value match"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catnetprint: type and value match']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-01",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catnetprint: type and value match"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catnetprint: type and value match']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-02",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catnetprint: type and value match"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catnetprint: type and value match']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-03",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catnetprint: type and value match"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catnetprint: type and value match']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-04",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catnetprint: type and value match"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catnetprint: type and value match']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-05",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catnetprint: type and value match"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catnetprint: type and value match']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-06",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catnetprint: type and value match"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catnetprint: type and value match']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-07",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catnetprint: type and value match"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catnetprint: type and value match']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-08",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catnetprint: type and value match"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catnetprint: type and value match']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-09",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catnetprint: type and value match"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catnetprint: type and value match']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-10",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catnetprint: type and value match"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catnetprint: type and value match']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-11",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catnetprint: type and value match"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catnetprint: type and value match']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-12",
+      "claim": "catnetprint",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catnetprint: type and value match"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catnetprint: type and value match']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-REJ-01",
+      "claim": "catnetprint",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catnetprint: fingerprint type 2 != connection type 0"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['catnetprint: fingerprint type 2 != connection type 0']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-REJ-02",
+      "claim": "catnetprint",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catnetprint: fingerprint value differs (case-insensitive compare)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['catnetprint: fingerprint value differs (case-insensitive compare)']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-REJ-03",
+      "claim": "catnetprint",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catnetprint: no fingerprint available for the connection (rust-cat errors)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['catnetprint: no fingerprint available for the connection (rust-cat errors)']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-REJ-04",
+      "claim": "catnetprint",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catnetprint: fingerprint type 99 != connection type 2"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['catnetprint: fingerprint type 99 != connection type 2']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-MAL-01",
+      "claim": "catnetprint",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catnetprint must be a map"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catnetprint must be a map']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catnetprint must be a map']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-MAL-02",
+      "claim": "catnetprint",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catnetprint key 0 (fingerprint type) must be present and an integer"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catnetprint key 0 (fingerprint type) must be present and an integer']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catnetprint key 0 (fingerprint type) must be present and an integer']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-MAL-03",
+      "claim": "catnetprint",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catnetprint key 0 (fingerprint type) must be present and an integer"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catnetprint key 0 (fingerprint type) must be present and an integer']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catnetprint key 0 (fingerprint type) must be present and an integer']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-MAL-04",
+      "claim": "catnetprint",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catnetprint key 1 (fingerprint value) must be present and tstr"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catnetprint key 1 (fingerprint value) must be present and tstr']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catnetprint key 1 (fingerprint value) must be present and tstr']"
+        }
+      }
+    },
+    {
+      "id": "CATNETPRINT-MAL-05",
+      "claim": "catnetprint",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catnetprint key 1 (fingerprint value) must be present and tstr"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catnetprint key 1 (fingerprint value) must be present and tstr']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catnetprint key 1 (fingerprint value) must be present and tstr']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-ACC-01",
+      "claim": "catpor",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catpor probability 0: never rejected"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catpor probability 0: never rejected']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-ACC-02",
+      "claim": "catpor",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catpor probability 0: never rejected"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catpor probability 0: never rejected']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-ACC-03",
+      "claim": "catpor",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catpor probability 0: never rejected"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catpor probability 0: never rejected']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-ACC-04",
+      "claim": "catpor",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catpor probability 0: never rejected"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catpor probability 0: never rejected']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-ACC-05",
+      "claim": "catpor",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catpor probability 0: never rejected"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catpor probability 0: never rejected']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-REJ-01",
+      "claim": "catpor",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catpor probability 1: always rejected"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['catpor probability 1: always rejected']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-REJ-02",
+      "claim": "catpor",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catpor probability 1: always rejected"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['catpor probability 1: always rejected']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-STAT-01",
+      "claim": "catpor",
+      "category": "statistical",
+      "ok": true,
+      "evaluator": {
+        "access": "probabilistic",
+        "probability": 0.5,
+        "reasons": [
+          "catpor probability 0.5"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=probabilistic expected=probabilistic reasons=['catpor probability 0.5']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-STAT-02",
+      "claim": "catpor",
+      "category": "statistical",
+      "ok": true,
+      "evaluator": {
+        "access": "probabilistic",
+        "probability": 0.25,
+        "reasons": [
+          "catpor probability 0.25"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=probabilistic expected=probabilistic reasons=['catpor probability 0.25']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-STAT-03",
+      "claim": "catpor",
+      "category": "statistical",
+      "ok": true,
+      "evaluator": {
+        "access": "probabilistic",
+        "probability": 5e-05,
+        "reasons": [
+          "catpor probability 5e-05"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=probabilistic expected=probabilistic reasons=['catpor probability 5e-05']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-MAL-01",
+      "claim": "catpor",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catpor probability 1.5 is outside [0, 1]"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catpor probability 1.5 is outside [0, 1]']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catpor probability 1.5 is outside [0, 1]']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-MAL-02",
+      "claim": "catpor",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catpor probability -0.1 is outside [0, 1]"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catpor probability -0.1 is outside [0, 1]']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catpor probability -0.1 is outside [0, 1]']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-MAL-03",
+      "claim": "catpor",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catpor probability 2 is outside [0, 1]"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catpor probability 2 is outside [0, 1]']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catpor probability 2 is outside [0, 1]']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-MAL-04",
+      "claim": "catpor",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catpor array must have 2 or 3 members, has 1"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catpor array must have 2 or 3 members, has 1']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catpor array must have 2 or 3 members, has 1']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-MAL-05",
+      "claim": "catpor",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catpor references claim 7 which is not present"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catpor references claim 7 which is not present']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catpor references claim 7 which is not present']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-MAL-06",
+      "claim": "catpor",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catpor references claim 4 whose value is not bstr"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catpor references claim 4 whose value is not bstr']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catpor references claim 4 whose value is not bstr']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-MAL-07",
+      "claim": "catpor",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catpor references claim 'cti' which is not present"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[\"catpor references claim 'cti' which is not present\"]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=[\"syntax: catpor references claim 'cti' which is not present\"]"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-MAL-08",
+      "claim": "catpor",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catpor must be an array"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catpor must be an array']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catpor must be an array']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-MAL-09",
+      "claim": "catpor",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catpor expiration must be a NumericDate (number)"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catpor expiration must be a NumericDate (number)']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catpor expiration must be a NumericDate (number)']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-MAL-10",
+      "claim": "catpor",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catpor array must have 2 or 3 members, has 4"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catpor array must have 2 or 3 members, has 4']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catpor array must have 2 or 3 members, has 4']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-MAL-11",
+      "claim": "catpor",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catpor probability must be a number"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catpor probability must be a number']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catpor probability must be a number']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-MAL-12",
+      "claim": "catpor",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: value is tagged (tag 1); §4.5 forbids tags on this claim"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['value is tagged (tag 1); §4.5 forbids tags on this claim']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: value is tagged (tag 1); §4.5 forbids tags on this claim']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-MAL-13",
+      "claim": "catpor",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: contains NaN or negative zero (§4.5: not valid values)"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=['{309}[0]: integral value -0.0 encoded as float (must be major type 0/1)', '{309}[0]: negative zero is not a valid claim value']"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['contains NaN or negative zero (§4.5: not valid values)']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: contains NaN or negative zero (§4.5: not valid values)']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-MAL-14",
+      "claim": "catpor",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: contains NaN or negative zero (§4.5: not valid values)"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=['{309}[0]: NaN is not a valid claim value']"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['contains NaN or negative zero (§4.5: not valid values)']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: contains NaN or negative zero (§4.5: not valid values)']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-MAL-15",
+      "claim": "catpor",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catpor probability inf is outside [0, 1]"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catpor probability inf is outside [0, 1]']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catpor probability inf is outside [0, 1]']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-ENC-01",
+      "claim": "catpor",
+      "category": "encoding",
+      "ok": true,
+      "evaluator": {
+        "access": "undefined",
+        "probability": null,
+        "reasons": [
+          "not deterministically encoded; §4.5: MAY be treated as ill-formed",
+          "catpor probability 0: never rejected"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=['{309}[0]: integral value 0.0 encoded as float (must be major type 0/1)']"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=undefined expected=undefined reasons=['not deterministically encoded; §4.5: MAY be treated as ill-formed', 'catpor probability 0: never rejected']"
+        }
+      }
+    },
+    {
+      "id": "CATPOR-ENC-02",
+      "claim": "catpor",
+      "category": "encoding",
+      "ok": true,
+      "evaluator": {
+        "access": "undefined",
+        "probability": 0.5,
+        "reasons": [
+          "not deterministically encoded; §4.5: MAY be treated as ill-formed",
+          "catpor probability 0.5"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=['{309}[0]: float 0.5 not in preferred (shortest) width']"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=undefined expected=undefined reasons=['not deterministically encoded; §4.5: MAY be treated as ill-formed', 'catpor probability 0.5']"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-01",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "renewal_type": 0,
+          "effective_type": 2,
+          "header_name": "CTA-Common-Access-Token",
+          "conveyance": "header",
+          "decision": "SHOULD renew",
+          "reason": "inside the renewal window [exp - deadline, exp)",
+          "renewed_token_requirements": {
+            "exp": "MUST equal verification time + 3600 seconds",
+            "cti": "MUST be present with a new value",
+            "other_claims": "MUST be unchanged (except exp, iss, iat)",
+            "iss_iat": "SHOULD be present and identify the renewing issuer / time"
+          }
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=SHOULD renew expected=SHOULD renew (inside the renewal window [exp - deadline, exp))"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-02",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "renewal_type": 0,
+          "effective_type": 1,
+          "conveyance": "cookie",
+          "cookie_name": "CAT",
+          "decision": "SHOULD renew",
+          "reason": "inside the renewal window [exp - deadline, exp)",
+          "renewed_token_requirements": {
+            "exp": "MUST equal verification time + 3600 seconds",
+            "cti": "MUST be present with a new value",
+            "other_claims": "MUST be unchanged (except exp, iss, iat)",
+            "iss_iat": "SHOULD be present and identify the renewing issuer / time"
+          }
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=SHOULD renew expected=SHOULD renew (inside the renewal window [exp - deadline, exp))"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-03",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "renewal_type": 0,
+          "effective_type": 3,
+          "conveyance": "redirect",
+          "status": 307,
+          "decision": "SHOULD renew",
+          "reason": "inside the renewal window [exp - deadline, exp)",
+          "renewed_token_requirements": {
+            "exp": "MUST equal verification time + 3600 seconds",
+            "cti": "MUST be present with a new value",
+            "other_claims": "MUST be unchanged (except exp, iss, iat)",
+            "iss_iat": "SHOULD be present and identify the renewing issuer / time"
+          }
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=SHOULD renew expected=SHOULD renew (inside the renewal window [exp - deadline, exp))"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-04",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "renewal_type": 1,
+          "effective_type": 1,
+          "conveyance": "cookie",
+          "cookie_name": "cat-renewed",
+          "cookie_params": [
+            "Secure",
+            "HttpOnly",
+            "Path=/content"
+          ],
+          "decision": "SHOULD renew",
+          "reason": "inside the renewal window [exp - deadline, exp)",
+          "renewed_token_requirements": {
+            "exp": "MUST equal verification time + 3600 seconds",
+            "cti": "MUST be present with a new value",
+            "other_claims": "MUST be unchanged (except exp, iss, iat)",
+            "iss_iat": "SHOULD be present and identify the renewing issuer / time"
+          }
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=SHOULD renew expected=SHOULD renew (inside the renewal window [exp - deadline, exp))"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-05",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "renewal_type": 2,
+          "effective_type": 2,
+          "header_name": "X-CAT-Renewed",
+          "conveyance": "header",
+          "decision": "SHOULD renew",
+          "reason": "inside the renewal window [exp - deadline, exp)",
+          "renewed_token_requirements": {
+            "exp": "MUST equal verification time + 3600 seconds",
+            "cti": "MUST be present with a new value",
+            "other_claims": "MUST be unchanged (except exp, iss, iat)",
+            "iss_iat": "SHOULD be present and identify the renewing issuer / time"
+          }
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=SHOULD renew expected=SHOULD renew (inside the renewal window [exp - deadline, exp))"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-06",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "renewal_type": 2,
+          "effective_type": 2,
+          "header_name": "CTA-Common-Access-Token",
+          "conveyance": "header",
+          "decision": "SHOULD renew",
+          "reason": "inside the renewal window [exp - deadline, exp)",
+          "renewed_token_requirements": {
+            "exp": "MUST equal verification time + 3600 seconds",
+            "cti": "MUST be present with a new value",
+            "other_claims": "MUST be unchanged (except exp, iss, iat)",
+            "iss_iat": "SHOULD be present and identify the renewing issuer / time"
+          }
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=SHOULD renew expected=SHOULD renew (inside the renewal window [exp - deadline, exp))"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-07",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "renewal_type": 3,
+          "effective_type": 3,
+          "conveyance": "redirect",
+          "status": 302,
+          "decision": "SHOULD renew",
+          "reason": "inside the renewal window [exp - deadline, exp)",
+          "renewed_token_requirements": {
+            "exp": "MUST equal verification time + 3600 seconds",
+            "cti": "MUST be present with a new value",
+            "other_claims": "MUST be unchanged (except exp, iss, iat)",
+            "iss_iat": "SHOULD be present and identify the renewing issuer / time"
+          }
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=SHOULD renew expected=SHOULD renew (inside the renewal window [exp - deadline, exp))"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-08",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "renewal_type": 3,
+          "effective_type": 3,
+          "conveyance": "redirect",
+          "status": 307,
+          "decision": "SHOULD renew",
+          "reason": "inside the renewal window [exp - deadline, exp)",
+          "renewed_token_requirements": {
+            "exp": "MUST equal verification time + 3600 seconds",
+            "cti": "MUST be present with a new value",
+            "other_claims": "MUST be unchanged (except exp, iss, iat)",
+            "iss_iat": "SHOULD be present and identify the renewing issuer / time"
+          }
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=SHOULD renew expected=SHOULD renew (inside the renewal window [exp - deadline, exp))"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-09",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "renewal_type": 0,
+          "effective_type": 2,
+          "header_name": "CTA-Common-Access-Token",
+          "conveyance": "header",
+          "decision": "MAY renew",
+          "reason": "no deadline: recipient MAY renew at any point it chooses (§4.9.2)",
+          "renewed_token_requirements": {
+            "exp": "MUST equal verification time + 3600 seconds",
+            "cti": "MUST be present with a new value",
+            "other_claims": "MUST be unchanged (except exp, iss, iat)",
+            "iss_iat": "SHOULD be present and identify the renewing issuer / time"
+          }
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=MAY renew expected=MAY renew (no deadline: recipient MAY renew at any point it chooses (§4.9.2))"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-10",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "renewal_type": 0,
+          "effective_type": 2,
+          "header_name": "CTA-Common-Access-Token",
+          "conveyance": "header",
+          "decision": "SHOULD NOT renew",
+          "reason": "before the renewal window (exp - deadline is in the future)",
+          "renewed_token_requirements": {
+            "exp": "MUST equal verification time + 3600 seconds",
+            "cti": "MUST be present with a new value",
+            "other_claims": "MUST be unchanged (except exp, iss, iat)",
+            "iss_iat": "SHOULD be present and identify the renewing issuer / time"
+          }
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=SHOULD NOT renew expected=SHOULD NOT renew (before the renewal window (exp - deadline is in the future))"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-11",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "unknown renewal type 99: MUST ignore (§4.9.2.5)"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=MUST NOT renew expected=MUST NOT renew (unknown renewal type 99: MUST ignore (§4.9.2.5))"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-12",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "renewal_type": 0,
+          "effective_type": 2,
+          "header_name": "CTA-Common-Access-Token",
+          "conveyance": "header",
+          "decision": "SHOULD renew",
+          "reason": "inside the renewal window [exp - deadline, exp)",
+          "renewed_token_requirements": {
+            "exp": "MUST equal verification time + 3600 seconds",
+            "cti": "MUST NOT be present",
+            "other_claims": "MUST be unchanged (except exp, iss, iat)",
+            "iss_iat": "SHOULD be present and identify the renewing issuer / time"
+          }
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=SHOULD renew expected=SHOULD renew (inside the renewal window [exp - deadline, exp))"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-13",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "renewal_type": 0,
+          "effective_type": 2,
+          "header_name": "CTA-Common-Access-Token",
+          "conveyance": "header",
+          "decision": "SHOULD renew",
+          "reason": "inside the renewal window [exp - deadline, exp)",
+          "renewed_token_requirements": {
+            "exp": "MUST equal verification time + 3600 seconds",
+            "cti": "MUST be present with a new value",
+            "other_claims": "MUST be unchanged (except exp, iss, iat)",
+            "iss_iat": "SHOULD be present and identify the renewing issuer / time"
+          }
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=SHOULD renew expected=SHOULD renew (inside the renewal window [exp - deadline, exp))"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-14",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "renewal_type": 0,
+          "effective_type": 2,
+          "header_name": "X-Token",
+          "conveyance": "header",
+          "decision": "SHOULD renew",
+          "reason": "inside the renewal window [exp - deadline, exp)",
+          "renewed_token_requirements": {
+            "exp": "MUST equal verification time + 3600 seconds",
+            "cti": "MUST be present with a new value",
+            "other_claims": "MUST be unchanged (except exp, iss, iat)",
+            "iss_iat": "SHOULD be present and identify the renewing issuer / time"
+          }
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=SHOULD renew expected=SHOULD renew (inside the renewal window [exp - deadline, exp))"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-15",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "renewal_type": 0,
+          "effective_type": 1,
+          "conveyance": "cookie",
+          "cookie_name": "CAT",
+          "decision": "SHOULD renew",
+          "reason": "inside the renewal window [exp - deadline, exp)",
+          "renewed_token_requirements": {
+            "exp": "MUST equal verification time + 3600 seconds",
+            "cti": "MUST be present with a new value",
+            "other_claims": "MUST be unchanged (except exp, iss, iat)",
+            "iss_iat": "SHOULD be present and identify the renewing issuer / time"
+          }
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=SHOULD renew expected=SHOULD renew (inside the renewal window [exp - deadline, exp))"
+        }
+      }
+    },
+    {
+      "id": "CATR-ACC-16",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "renewal_type": 0,
+          "effective_type": 1,
+          "conveyance": "cookie",
+          "cookie_name": "cat-new",
+          "decision": "SHOULD renew",
+          "reason": "inside the renewal window [exp - deadline, exp)",
+          "renewed_token_requirements": {
+            "exp": "MUST equal verification time + 3600 seconds",
+            "cti": "MUST be present with a new value",
+            "other_claims": "MUST be unchanged (except exp, iss, iat)",
+            "iss_iat": "SHOULD be present and identify the renewing issuer / time"
+          }
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=SHOULD renew expected=SHOULD renew (inside the renewal window [exp - deadline, exp))"
+        }
+      }
+    },
+    {
+      "id": "CATR-NOR-01",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "renewal deadline present but no exp in base claims (§4.9.2)"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=MUST NOT renew expected=MUST NOT renew (renewal deadline present but no exp in base claims (§4.9.2))"
+        }
+      }
+    },
+    {
+      "id": "CATR-NOR-02",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "redirect renewal: token not in URI (§4.9.2.4 MUST NOT be processed)"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=MUST NOT renew expected=MUST NOT renew (redirect renewal: token not in URI (§4.9.2.4 MUST NOT be processed))"
+        }
+      }
+    },
+    {
+      "id": "CATR-NOR-03",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "automatic renewal MUST NOT have additional parameters (§4.9.2.1); parameters not appropriate for the type"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=MUST NOT renew expected=MUST NOT renew (automatic renewal MUST NOT have additional parameters (§4.9.2.1); parameters not appropriate for the type)"
+        }
+      }
+    },
+    {
+      "id": "CATR-NOR-04",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "parameters [3] not appropriate for renewal type 2 (§4.9.2)"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=MUST NOT renew expected=MUST NOT renew (parameters [3] not appropriate for renewal type 2 (§4.9.2))"
+        }
+      }
+    },
+    {
+      "id": "CATR-NOR-05",
+      "claim": "catr",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "additional cookie parameters contain characters illegal per RFC 6265 §5.2"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=MUST NOT renew expected=MUST NOT renew (additional cookie parameters contain characters illegal per RFC 6265 §5.2)"
+        }
+      }
+    },
+    {
+      "id": "CATR-NOR-06",
+      "claim": "catr",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catm: method 'GET' not listed (case-sensitive)"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is unacceptable (§4.9.2: MUST NOT renew an unacceptable token)"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=[\"catm: method 'GET' not listed (case-sensitive)\"] renewal=MUST NOT renew expected=MUST NOT renew (token is unacceptable (§4.9.2: MUST NOT renew an unacceptable token))"
+        }
+      }
+    },
+    {
+      "id": "CATR-NOR-07",
+      "claim": "catr",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "exp: token expired"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is unacceptable (§4.9.2: MUST NOT renew an unacceptable token)"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['exp: token expired'] renewal=MUST NOT renew expected=MUST NOT renew (token is unacceptable (§4.9.2: MUST NOT renew an unacceptable token))"
+        }
+      }
+    },
+    {
+      "id": "CATR-UND-01",
+      "claim": "catr",
+      "category": "undefined",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": {
+          "decision": "undefined",
+          "reason": "status code 200 outside 300-399 (spec: MUST be 300-399; recipient handling not specified)"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[] renewal=undefined expected=undefined (status code 200 outside 300-399 (spec: MUST be 300-399; recipient handling not specified))"
+        }
+      }
+    },
+    {
+      "id": "CATR-UND-02",
+      "claim": "catr",
+      "category": "undefined",
+      "ok": true,
+      "evaluator": {
+        "access": "undefined",
+        "probability": null,
+        "reasons": [
+          "catr: 51 members (MUST process only fewer than 50; MAY treat larger as invalid)"
+        ],
+        "renewal": {
+          "decision": "undefined",
+          "reason": "token acceptance is undefined"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=undefined expected=undefined reasons=['catr: 51 members (MUST process only fewer than 50; MAY treat larger as invalid)'] renewal=undefined expected=undefined (token acceptance is undefined)"
+        }
+      }
+    },
+    {
+      "id": "CATR-UND-03",
+      "claim": "catr",
+      "category": "undefined",
+      "ok": true,
+      "evaluator": {
+        "access": "undefined",
+        "probability": null,
+        "reasons": [
+          "catr: 50 members (MUST process only fewer than 50; MAY treat larger as invalid)"
+        ],
+        "renewal": {
+          "decision": "undefined",
+          "reason": "token acceptance is undefined"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=undefined expected=undefined reasons=['catr: 50 members (MUST process only fewer than 50; MAY treat larger as invalid)'] renewal=undefined expected=undefined (token acceptance is undefined)"
+        }
+      }
+    },
+    {
+      "id": "CATR-MAL-01",
+      "claim": "catr",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catr renewal type (0) is required"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catr renewal type (0) is required']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catr renewal type (0) is required'] renewal=MUST NOT renew expected=MUST NOT renew (token is not valid)"
+        }
+      }
+    },
+    {
+      "id": "CATR-MAL-02",
+      "claim": "catr",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catr expiration extension (1) is required"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catr expiration extension (1) is required']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catr expiration extension (1) is required'] renewal=MUST NOT renew expected=MUST NOT renew (token is not valid)"
+        }
+      }
+    },
+    {
+      "id": "CATR-MAL-03",
+      "claim": "catr",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catr expiration extension (1) must be a number"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catr expiration extension (1) must be a number']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catr expiration extension (1) must be a number'] renewal=MUST NOT renew expected=MUST NOT renew (token is not valid)"
+        }
+      }
+    },
+    {
+      "id": "CATR-MAL-04",
+      "claim": "catr",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catr renewal type (0) must be int"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catr renewal type (0) must be int']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catr renewal type (0) must be int'] renewal=MUST NOT renew expected=MUST NOT renew (token is not valid)"
+        }
+      }
+    },
+    {
+      "id": "CATR-MAL-05",
+      "claim": "catr",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catr must be a map"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catr must be a map']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catr must be a map'] renewal=MUST NOT renew expected=MUST NOT renew (token is not valid)"
+        }
+      }
+    },
+    {
+      "id": "CATR-MAL-06",
+      "claim": "catr",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catr parameter 3 must be tstr"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catr parameter 3 must be tstr']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catr parameter 3 must be tstr'] renewal=MUST NOT renew expected=MUST NOT renew (token is not valid)"
+        }
+      }
+    },
+    {
+      "id": "CATR-MAL-07",
+      "claim": "catr",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catr parameter 5 must be [* tstr]"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catr parameter 5 must be [* tstr]']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catr parameter 5 must be [* tstr]'] renewal=MUST NOT renew expected=MUST NOT renew (token is not valid)"
+        }
+      }
+    },
+    {
+      "id": "CATR-MAL-08",
+      "claim": "catr",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: value is tagged (tag 1); §4.5 forbids tags on this claim"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['value is tagged (tag 1); §4.5 forbids tags on this claim']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: value is tagged (tag 1); §4.5 forbids tags on this claim'] renewal=MUST NOT renew expected=MUST NOT renew (token is not valid)"
+        }
+      }
+    },
+    {
+      "id": "CATREPLAY-ACC-01",
+      "claim": "catreplay",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catreplay 0: replay permitted (MUST NOT reject for reuse)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catreplay 0: replay permitted (MUST NOT reject for reuse)']"
+        }
+      }
+    },
+    {
+      "id": "CATREPLAY-ACC-02",
+      "claim": "catreplay",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catreplay 0: replay permitted (MUST NOT reject for reuse)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catreplay 0: replay permitted (MUST NOT reject for reuse)']"
+        }
+      }
+    },
+    {
+      "id": "CATREPLAY-ACC-03",
+      "claim": "catreplay",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catreplay 1: first use"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catreplay 1: first use']"
+        }
+      }
+    },
+    {
+      "id": "CATREPLAY-ACC-04",
+      "claim": "catreplay",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "catreplay 2: first use"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['catreplay 2: first use']"
+        }
+      }
+    },
+    {
+      "id": "CATREPLAY-UND-01",
+      "claim": "catreplay",
+      "category": "undefined",
+      "ok": true,
+      "evaluator": {
+        "access": "undefined",
+        "probability": null,
+        "reasons": [
+          "catreplay 1 with reused token: recipient MAY reject (tracking outside VCL)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=undefined expected=undefined reasons=['catreplay 1 with reused token: recipient MAY reject (tracking outside VCL)']"
+        }
+      }
+    },
+    {
+      "id": "CATREPLAY-UND-02",
+      "claim": "catreplay",
+      "category": "undefined",
+      "ok": true,
+      "evaluator": {
+        "access": "undefined",
+        "probability": null,
+        "reasons": [
+          "catreplay 2 with reused token: recipient MAY reject (tracking outside VCL)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=undefined expected=undefined reasons=['catreplay 2 with reused token: recipient MAY reject (tracking outside VCL)']"
+        }
+      }
+    },
+    {
+      "id": "CATREPLAY-UND-03",
+      "claim": "catreplay",
+      "category": "undefined",
+      "ok": true,
+      "evaluator": {
+        "access": "undefined",
+        "probability": null,
+        "reasons": [
+          "catreplay 3: recipient behaviour undefined (§4.6.6)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=undefined expected=undefined reasons=['catreplay 3: recipient behaviour undefined (§4.6.6)']"
+        }
+      }
+    },
+    {
+      "id": "CATREPLAY-UND-04",
+      "claim": "catreplay",
+      "category": "undefined",
+      "ok": true,
+      "evaluator": {
+        "access": "undefined",
+        "probability": null,
+        "reasons": [
+          "catreplay 18446744073709551615: recipient behaviour undefined (§4.6.6)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=undefined expected=undefined reasons=['catreplay 18446744073709551615: recipient behaviour undefined (§4.6.6)']"
+        }
+      }
+    },
+    {
+      "id": "CATREPLAY-MAL-01",
+      "claim": "catreplay",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catreplay must be uint"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catreplay must be uint']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catreplay must be uint']"
+        }
+      }
+    },
+    {
+      "id": "CATREPLAY-MAL-02",
+      "claim": "catreplay",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catreplay must be uint"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catreplay must be uint']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catreplay must be uint']"
+        }
+      }
+    },
+    {
+      "id": "CATREPLAY-MAL-03",
+      "claim": "catreplay",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catreplay must be uint"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=['{308}: integral value 1.0 encoded as float (must be major type 0/1)']"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catreplay must be uint']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catreplay must be uint']"
+        }
+      }
+    },
+    {
+      "id": "CATREPLAY-MAL-04",
+      "claim": "catreplay",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: value is tagged (tag 1); §4.5 forbids tags on this claim"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['value is tagged (tag 1); §4.5 forbids tags on this claim']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: value is tagged (tag 1); §4.5 forbids tags on this claim']"
+        }
+      }
+    },
+    {
+      "id": "CATREPLAY-ENC-01",
+      "claim": "catreplay",
+      "category": "encoding",
+      "ok": true,
+      "evaluator": {
+        "access": "undefined",
+        "probability": null,
+        "reasons": [
+          "not deterministically encoded; §4.5: MAY be treated as ill-formed",
+          "catreplay 1: first use"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=['{308}: argument 1 not in shortest form (1-byte argument)']"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=undefined expected=undefined reasons=['not deterministically encoded; §4.5: MAY be treated as ill-formed', 'catreplay 1: first use']"
+        }
+      }
+    },
+    {
+      "id": "CATTPK-ACC-01",
+      "claim": "cattpk",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "cattpk: matching certificate in client chain"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['cattpk: matching certificate in client chain']"
+        }
+      }
+    },
+    {
+      "id": "CATTPK-ACC-02",
+      "claim": "cattpk",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "cattpk: matching certificate in client chain"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['cattpk: matching certificate in client chain']"
+        }
+      }
+    },
+    {
+      "id": "CATTPK-REJ-01",
+      "claim": "cattpk",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "cattpk: no certificate in client chain matches (MUST reject)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['cattpk: no certificate in client chain matches (MUST reject)']"
+        }
+      }
+    },
+    {
+      "id": "CATTPK-ACC-03",
+      "claim": "cattpk",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [
+          "cattpk: matching certificate in client chain"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=['cattpk: matching certificate in client chain']"
+        }
+      }
+    },
+    {
+      "id": "CATTPK-UND-01",
+      "claim": "cattpk",
+      "category": "undefined",
+      "ok": true,
+      "evaluator": {
+        "access": "undefined",
+        "probability": null,
+        "reasons": [
+          "cattpk: matching certificate is in the presented chain, but the chain does not validate; §4.6.18 does not say whether validation is required"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=undefined expected=undefined reasons=['cattpk: matching certificate is in the presented chain, but the chain does not validate; §4.6.18 does not say whether validation is required']"
+        }
+      }
+    },
+    {
+      "id": "CATTPK-REJ-02",
+      "claim": "cattpk",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "cattpk: no certificate in client chain matches (MUST reject)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['cattpk: no certificate in client chain matches (MUST reject)']"
+        }
+      }
+    },
+    {
+      "id": "CATTPK-REJ-03",
+      "claim": "cattpk",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "cattpk: no certificate in client chain matches (MUST reject)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['cattpk: no certificate in client chain matches (MUST reject)']"
+        }
+      }
+    },
+    {
+      "id": "CATTPK-REJ-04",
+      "claim": "cattpk",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "cattpk: no certificate in client chain matches (MUST reject)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['cattpk: no certificate in client chain matches (MUST reject)']"
+        }
+      }
+    },
+    {
+      "id": "CATTPK-REJ-05",
+      "claim": "cattpk",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "cattpk: not over TLS; no certificate chain presented (§4.6.18 first sentence)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['cattpk: not over TLS; no certificate chain presented (§4.6.18 first sentence)']"
+        }
+      }
+    },
+    {
+      "id": "CATTPK-MAL-01",
+      "claim": "cattpk",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: cattpk must be bstr"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['cattpk must be bstr']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: cattpk must be bstr']"
+        }
+      }
+    },
+    {
+      "id": "CATTPK-MAL-02",
+      "claim": "cattpk",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: cattpk must be bstr"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['cattpk must be bstr']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: cattpk must be bstr']"
+        }
+      }
+    },
+    {
+      "id": "CATTPK-MAL-03",
+      "claim": "cattpk",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: value is tagged (tag 24); §4.5 forbids tags on this claim"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['value is tagged (tag 24); §4.5 forbids tags on this claim']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: value is tagged (tag 24); §4.5 forbids tags on this claim']"
+        }
+      }
+    },
+    {
+      "id": "CATV-ACC-01",
+      "claim": "catv",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[]"
+        }
+      }
+    },
+    {
+      "id": "CATV-ACC-02",
+      "claim": "catv",
+      "category": "accept",
+      "ok": true,
+      "evaluator": {
+        "access": "accept",
+        "probability": null,
+        "reasons": [],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=accept expected=accept reasons=[]"
+        }
+      }
+    },
+    {
+      "id": "CATV-REJ-01",
+      "claim": "catv",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catv 2: unsupported version (MUST reject)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['catv 2: unsupported version (MUST reject)']"
+        }
+      }
+    },
+    {
+      "id": "CATV-REJ-02",
+      "claim": "catv",
+      "category": "reject",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "catv 0: unsupported version (MUST reject)"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['catv 0: unsupported version (MUST reject)']"
+        }
+      }
+    },
+    {
+      "id": "CATV-MAL-01",
+      "claim": "catv",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catv must be uint"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catv must be uint']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catv must be uint']"
+        }
+      }
+    },
+    {
+      "id": "CATV-MAL-02",
+      "claim": "catv",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catv must be uint"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=['{310}: integral value 1.0 encoded as float (must be major type 0/1)']"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catv must be uint']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catv must be uint']"
+        }
+      }
+    },
+    {
+      "id": "CATV-MAL-03",
+      "claim": "catv",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: catv must be uint"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['catv must be uint']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: catv must be uint']"
+        }
+      }
+    },
+    {
+      "id": "CATV-MAL-04",
+      "claim": "catv",
+      "category": "malformed",
+      "ok": true,
+      "evaluator": {
+        "access": "reject",
+        "probability": null,
+        "reasons": [
+          "syntax: value is tagged (tag 1); §4.5 forbids tags on this claim"
+        ],
+        "renewal": {
+          "decision": "MUST NOT renew",
+          "reason": "token is not valid"
+        }
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=[]"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=['value is tagged (tag 1); §4.5 forbids tags on this claim']"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=reject expected=reject reasons=['syntax: value is tagged (tag 1); §4.5 forbids tags on this claim']"
+        }
+      }
+    },
+    {
+      "id": "CATV-ENC-01",
+      "claim": "catv",
+      "category": "encoding",
+      "ok": true,
+      "evaluator": {
+        "access": "undefined",
+        "probability": null,
+        "reasons": [
+          "not deterministically encoded; §4.5: MAY be treated as ill-formed"
+        ],
+        "renewal": null
+      },
+      "checks": {
+        "decode": {
+          "ok": true,
+          "detail": "tags=[61, 17] alg=5 kid='cat-tests-hs256'"
+        },
+        "mac": {
+          "ok": true,
+          "detail": ""
+        },
+        "roundtrip": {
+          "ok": true,
+          "detail": ""
+        },
+        "encoding": {
+          "ok": true,
+          "detail": "issues=['{310}: argument 1 not in shortest form (1-byte argument)']"
+        },
+        "structure": {
+          "ok": true,
+          "detail": "errors=[]"
+        },
+        "expected": {
+          "ok": true,
+          "detail": "evaluator=undefined expected=undefined reasons=['not deterministically encoded; §4.5: MAY be treated as ill-formed']"
+        }
+      }
+    }
+  ]
+}

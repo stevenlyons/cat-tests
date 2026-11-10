@@ -1,0 +1,215 @@
+{
+  "claim": "catm",
+  "claim_key": 313,
+  "ticket": "VCC-1477",
+  "rules_source": "CTA-5007-B §4.6.11",
+  "cases": [
+    {
+      "id": "CATM-ACC-01",
+      "title": "[GET] with GET",
+      "category": "accept",
+      "claims_edn": "{313: [\"GET\"]}",
+      "expected": {
+        "access": "accept",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.11",
+        "reason": "Method listed."
+      }
+    },
+    {
+      "id": "CATM-ACC-02",
+      "title": "[GET, HEAD] with HEAD",
+      "category": "accept",
+      "claims_edn": "{313: [\"GET\", \"HEAD\"]}",
+      "request": {
+        "method": "HEAD"
+      },
+      "expected": {
+        "access": "accept",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.11",
+        "reason": "Method listed."
+      }
+    },
+    {
+      "id": "CATM-ACC-03",
+      "title": "catm absent with DELETE",
+      "category": "accept",
+      "claims_edn": "{}",
+      "request": {
+        "method": "DELETE"
+      },
+      "expected": {
+        "access": "accept",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.11",
+        "reason": "'If the catm claim is not present, any method is acceptable.'"
+      }
+    },
+    {
+      "id": "CATM-ACC-04",
+      "title": "Duplicate entries [GET, GET]",
+      "category": "accept",
+      "claims_edn": "{313: [\"GET\", \"GET\"]}",
+      "expected": {
+        "access": "accept",
+        "basis": "SHOULD NOT",
+        "spec_ref": "CTA-5007-B §4.6.11",
+        "reason": "Issuers SHOULD NOT duplicate entries, but the claim is still valid."
+      }
+    },
+    {
+      "id": "CATM-ACC-05",
+      "title": "50 members, method listed",
+      "category": "accept",
+      "claims_edn": "{313: [\"GET\", \"X-M00\", \"X-M01\", \"X-M02\", \"X-M03\", \"X-M04\", \"X-M05\", \"X-M06\", \"X-M07\", \"X-M08\", \"X-M09\", \"X-M10\", \"X-M11\", \"X-M12\", \"X-M13\", \"X-M14\", \"X-M15\", \"X-M16\", \"X-M17\", \"X-M18\", \"X-M19\", \"X-M20\", \"X-M21\", \"X-M22\", \"X-M23\", \"X-M24\", \"X-M25\", \"X-M26\", \"X-M27\", \"X-M28\", \"X-M29\", \"X-M30\", \"X-M31\", \"X-M32\", \"X-M33\", \"X-M34\", \"X-M35\", \"X-M36\", \"X-M37\", \"X-M38\", \"X-M39\", \"X-M40\", \"X-M41\", \"X-M42\", \"X-M43\", \"X-M44\", \"X-M45\", \"X-M46\", \"X-M47\", \"X-M48\"]}",
+      "expected": {
+        "access": "accept",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.11",
+        "reason": "'Recipients MUST process catm claims with 50 or fewer elements.'"
+      }
+    },
+    {
+      "id": "CATM-REJ-01",
+      "title": "[GET] with POST",
+      "category": "reject",
+      "claims_edn": "{313: [\"GET\"]}",
+      "request": {
+        "method": "POST"
+      },
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.11",
+        "reason": "'A recipient MUST reject a claim set in a request that uses a method that is not listed.'"
+      }
+    },
+    {
+      "id": "CATM-REJ-02",
+      "title": "[get] with GET (case)",
+      "category": "reject",
+      "claims_edn": "{313: [\"get\"]}",
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.11",
+        "reason": "'Methods and members of the catm claim are compared case-sensitively.' (rust-cat compares case-insensitively and would accept.)"
+      }
+    },
+    {
+      "id": "CATM-REJ-03",
+      "title": "[GET, HEAD] with OPTIONS",
+      "category": "reject",
+      "claims_edn": "{313: [\"GET\", \"HEAD\"]}",
+      "request": {
+        "method": "OPTIONS"
+      },
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.11",
+        "reason": "Method not listed."
+      }
+    },
+    {
+      "id": "CATM-REJ-05",
+      "title": "[GET] with request method get (case)",
+      "category": "reject",
+      "claims_edn": "{313: [\"GET\"]}",
+      "request": {
+        "method": "get"
+      },
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.11",
+        "reason": "Case-sensitive: a request using method 'get' is not 'GET'. Catches implementations that only normalise the request side."
+      }
+    },
+    {
+      "id": "CATM-REJ-04",
+      "title": "51 members, method not listed",
+      "category": "reject",
+      "claims_edn": "{313: [\"PUT\", \"X-M00\", \"X-M01\", \"X-M02\", \"X-M03\", \"X-M04\", \"X-M05\", \"X-M06\", \"X-M07\", \"X-M08\", \"X-M09\", \"X-M10\", \"X-M11\", \"X-M12\", \"X-M13\", \"X-M14\", \"X-M15\", \"X-M16\", \"X-M17\", \"X-M18\", \"X-M19\", \"X-M20\", \"X-M21\", \"X-M22\", \"X-M23\", \"X-M24\", \"X-M25\", \"X-M26\", \"X-M27\", \"X-M28\", \"X-M29\", \"X-M30\", \"X-M31\", \"X-M32\", \"X-M33\", \"X-M34\", \"X-M35\", \"X-M36\", \"X-M37\", \"X-M38\", \"X-M39\", \"X-M40\", \"X-M41\", \"X-M42\", \"X-M43\", \"X-M44\", \"X-M45\", \"X-M46\", \"X-M47\", \"X-M48\", \"X-M49\"]}",
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.11",
+        "reason": "Rejected either way: over the limit it MAY be invalid, otherwise GET is not listed."
+      }
+    },
+    {
+      "id": "CATM-UND-01",
+      "title": "51 members, method listed",
+      "category": "undefined",
+      "claims_edn": "{313: [\"GET\", \"X-M00\", \"X-M01\", \"X-M02\", \"X-M03\", \"X-M04\", \"X-M05\", \"X-M06\", \"X-M07\", \"X-M08\", \"X-M09\", \"X-M10\", \"X-M11\", \"X-M12\", \"X-M13\", \"X-M14\", \"X-M15\", \"X-M16\", \"X-M17\", \"X-M18\", \"X-M19\", \"X-M20\", \"X-M21\", \"X-M22\", \"X-M23\", \"X-M24\", \"X-M25\", \"X-M26\", \"X-M27\", \"X-M28\", \"X-M29\", \"X-M30\", \"X-M31\", \"X-M32\", \"X-M33\", \"X-M34\", \"X-M35\", \"X-M36\", \"X-M37\", \"X-M38\", \"X-M39\", \"X-M40\", \"X-M41\", \"X-M42\", \"X-M43\", \"X-M44\", \"X-M45\", \"X-M46\", \"X-M47\", \"X-M48\", \"X-M49\"]}",
+      "expected": {
+        "access": "undefined",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.6.11",
+        "reason": "Over 50: recipient MAY consider the token invalid; at 50 or fewer it MUST process."
+      }
+    },
+    {
+      "id": "CATM-MAL-01",
+      "title": "Empty array",
+      "category": "malformed",
+      "claims_edn": "{313: []}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.11; §4.3.1.2",
+        "reason": "catm-value = [ + tstr ] requires at least one member."
+      }
+    },
+    {
+      "id": "CATM-MAL-02",
+      "title": "Non-text member",
+      "category": "malformed",
+      "claims_edn": "{313: [\"GET\", 42]}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.11; §4.3.1.2",
+        "reason": "Members are tstr."
+      }
+    },
+    {
+      "id": "CATM-MAL-03",
+      "title": "Bare string, not array",
+      "category": "malformed",
+      "claims_edn": "{313: \"GET\"}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.11; §4.3.1.2",
+        "reason": "catm is an array."
+      }
+    },
+    {
+      "id": "CATM-MAL-04",
+      "title": "Byte-string member",
+      "category": "malformed",
+      "claims_edn": "{313: [h'474554']}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.11; §4.3.1.2",
+        "reason": "Members are tstr, not bstr."
+      }
+    },
+    {
+      "id": "CATM-MAL-05",
+      "title": "Tagged with tag 41",
+      "category": "malformed",
+      "claims_edn": "{313: 41([\"GET\"])}",
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.5",
+        "reason": "§4.5 uses exactly this example: catm must not be prefixed with tag 41; improperly tagged values MUST be rejected."
+      }
+    }
+  ]
+}

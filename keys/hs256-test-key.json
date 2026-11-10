@@ -1,0 +1,7 @@
+{
+  "_comment": "TEST-ONLY HS256 key generated for the cat-tests suite. Not used anywhere else. Do not use in production.",
+  "kid": "cat-tests-hs256",
+  "alg": "HMAC 256/256 (COSE 5)",
+  "key_b64": "dXONzEbas32D4S4NskjijzOXJTwtIAmcEusauvfO7S4=",
+  "key_hex": "75738dcc46dab37d83e12e0db248e28f3397253c2d20099c12eb1abaf7ceed2e"
+}

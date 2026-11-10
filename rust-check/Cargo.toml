@@ -1,0 +1,13 @@
+[package]
+name = "rust-check"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Cross-checks the generated CAT test tokens with fastly/rust-cat"
+
+[dependencies]
+# Pinned to rust-cat main (needs the cattprint / key 324 support). Record the commit you
+# tested against in out/rustcat.json via `cargo tree` or Cargo.lock.
+common-access-token = { git = "https://github.com/fastly/rust-cat", branch = "main" }
+serde_json = "1"
+base64 = "0.22"

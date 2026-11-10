@@ -1,0 +1,330 @@
+{
+  "claim": "catalpn",
+  "claim_key": 314,
+  "ticket": "VCC-1478",
+  "rules_source": "CTA-5007-B §4.6.12",
+  "cases": [
+    {
+      "id": "CATALPN-ACC-01",
+      "title": "[h2] over h2",
+      "category": "accept",
+      "claims_edn": "{314: [h'6832']}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "tls-alpn"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.12",
+        "reason": "ALPN listed (byte-wise match)."
+      }
+    },
+    {
+      "id": "CATALPN-ACC-02",
+      "title": "[http/1.1, h2] over http/1.1",
+      "category": "accept",
+      "claims_edn": "{314: [h'687474702f312e31', h'6832']}",
+      "request": {
+        "tls": {
+          "alpn": "http/1.1",
+          "client_chain": [],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "tls-alpn"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.12",
+        "reason": "ALPN listed."
+      }
+    },
+    {
+      "id": "CATALPN-ACC-03",
+      "title": "catalpn absent, plain HTTP",
+      "category": "accept",
+      "claims_edn": "{}",
+      "request": {
+        "tls": null
+      },
+      "needs": [
+        "plaintext"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.12",
+        "reason": "'If the catalpn claim is not present, any ALPN is acceptable.'"
+      }
+    },
+    {
+      "id": "CATALPN-ACC-04",
+      "title": "50 members incl. h2, over h2",
+      "category": "accept",
+      "claims_edn": "{314: [h'7800', h'7801', h'7802', h'7803', h'7804', h'7805', h'7806', h'7807', h'7808', h'7809', h'780a', h'780b', h'780c', h'780d', h'780e', h'780f', h'7810', h'7811', h'7812', h'7813', h'7814', h'7815', h'7816', h'7817', h'7818', h'7819', h'781a', h'781b', h'781c', h'781d', h'781e', h'781f', h'7820', h'7821', h'7822', h'7823', h'7824', h'7825', h'7826', h'7827', h'7828', h'7829', h'782a', h'782b', h'782c', h'782d', h'782e', h'782f', h'7830', h'6832']}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "tls-alpn"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.12",
+        "reason": "'Recipients MUST process catalpn claims with 50 or fewer elements.'"
+      }
+    },
+    {
+      "id": "CATALPN-REJ-01",
+      "title": "[h2] over http/1.1",
+      "category": "reject",
+      "claims_edn": "{314: [h'6832']}",
+      "request": {
+        "tls": {
+          "alpn": "http/1.1",
+          "client_chain": [],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "tls-alpn"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.12",
+        "reason": "ALPN not listed: MUST reject."
+      }
+    },
+    {
+      "id": "CATALPN-REJ-02",
+      "title": "[h2] over plain HTTP",
+      "category": "reject",
+      "claims_edn": "{314: [h'6832']}",
+      "request": {
+        "tls": null
+      },
+      "needs": [
+        "plaintext"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.12",
+        "reason": "'A catalpn claim in a request that is not made over a TLS connection MUST be rejected.'"
+      }
+    },
+    {
+      "id": "CATALPN-REJ-03",
+      "title": "[h2] over TLS with no ALPN determined",
+      "category": "reject",
+      "claims_edn": "{314: [h'6832']}",
+      "request": {
+        "tls": {
+          "alpn": null,
+          "client_chain": [],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "tls-alpn"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.12",
+        "reason": "'If a recipient does not determine the ALPN over which a given request is made, the request MUST be rejected.'"
+      }
+    },
+    {
+      "id": "CATALPN-REJ-04",
+      "title": "[\"H2\" bytes] over h2 (case)",
+      "category": "reject",
+      "claims_edn": "{314: [h'4832']}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "tls-alpn"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.12",
+        "reason": "Compared byte-wise and must match exactly."
+      }
+    },
+    {
+      "id": "CATALPN-REJ-05",
+      "title": "Prefix [h'68'] over h2",
+      "category": "reject",
+      "claims_edn": "{314: [h'68']}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "tls-alpn"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.12",
+        "reason": "Must match exactly; a prefix is not a match."
+      }
+    },
+    {
+      "id": "CATALPN-REJ-06",
+      "title": "51 members without h2, over h2",
+      "category": "reject",
+      "claims_edn": "{314: [h'7800', h'7801', h'7802', h'7803', h'7804', h'7805', h'7806', h'7807', h'7808', h'7809', h'780a', h'780b', h'780c', h'780d', h'780e', h'780f', h'7810', h'7811', h'7812', h'7813', h'7814', h'7815', h'7816', h'7817', h'7818', h'7819', h'781a', h'781b', h'781c', h'781d', h'781e', h'781f', h'7820', h'7821', h'7822', h'7823', h'7824', h'7825', h'7826', h'7827', h'7828', h'7829', h'782a', h'782b', h'782c', h'782d', h'782e', h'782f', h'7830', h'7831', h'7878']}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "tls-alpn"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.12",
+        "reason": "Rejected either way: over the limit it MAY be invalid, otherwise h2 is not listed."
+      }
+    },
+    {
+      "id": "CATALPN-UND-01",
+      "title": "51 members incl. h2, over h2",
+      "category": "undefined",
+      "claims_edn": "{314: [h'7800', h'7801', h'7802', h'7803', h'7804', h'7805', h'7806', h'7807', h'7808', h'7809', h'780a', h'780b', h'780c', h'780d', h'780e', h'780f', h'7810', h'7811', h'7812', h'7813', h'7814', h'7815', h'7816', h'7817', h'7818', h'7819', h'781a', h'781b', h'781c', h'781d', h'781e', h'781f', h'7820', h'7821', h'7822', h'7823', h'7824', h'7825', h'7826', h'7827', h'7828', h'7829', h'782a', h'782b', h'782c', h'782d', h'782e', h'782f', h'7830', h'7831', h'6832']}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "tls-alpn"
+      ],
+      "expected": {
+        "access": "undefined",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.6.12",
+        "reason": "Over 50: recipient MAY consider the token invalid."
+      }
+    },
+    {
+      "id": "CATALPN-MAL-01",
+      "title": "Text members [\"h2\"]",
+      "category": "malformed",
+      "claims_edn": "{314: [\"h2\"]}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "tls-alpn"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.12; §4.3.1.2",
+        "reason": "catalpn-value = [ + bstr ]; text strings are not byte strings."
+      }
+    },
+    {
+      "id": "CATALPN-MAL-02",
+      "title": "Empty array",
+      "category": "malformed",
+      "claims_edn": "{314: []}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "tls-alpn"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.12; §4.3.1.2",
+        "reason": "At least one member required."
+      }
+    },
+    {
+      "id": "CATALPN-MAL-03",
+      "title": "Bare bstr, not array",
+      "category": "malformed",
+      "claims_edn": "{314: h'6832'}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "tls-alpn"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.12; §4.3.1.2",
+        "reason": "catalpn is an array."
+      }
+    },
+    {
+      "id": "CATALPN-MAL-04",
+      "title": "Tagged value",
+      "category": "malformed",
+      "claims_edn": "{314: 41([h'6832'])}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": null
+        }
+      },
+      "needs": [
+        "tls-alpn"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.5",
+        "reason": "Improperly tagged claim value MUST be rejected."
+      }
+    }
+  ]
+}

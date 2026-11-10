@@ -1,0 +1,338 @@
+{
+  "claim": "catpor",
+  "claim_key": 309,
+  "ticket": "VCC-1475",
+  "rules_source": "CTA-5007-B §4.6.7 (reuse blocking out of scope: tracked outside VCL)",
+  "cases": [
+    {
+      "id": "CATPOR-ACC-01",
+      "title": "Probability 0 with bstr id",
+      "category": "accept",
+      "claims_edn": "{309: [0, h'087ee44f239f7a2e34b3d1649aad8c1d']}",
+      "expected": {
+        "access": "accept",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.7",
+        "reason": "Rejected with probability equal to the value: 0 means never rejected."
+      }
+    },
+    {
+      "id": "CATPOR-ACC-02",
+      "title": "Probability 0 with bstr id and expiry",
+      "category": "accept",
+      "claims_edn": "{309: [0, h'087ee44f239f7a2e34b3d1649aad8c1d', 4102444800]}",
+      "expected": {
+        "access": "accept",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.7",
+        "reason": "Optional third member is a NumericDate; probability 0."
+      }
+    },
+    {
+      "id": "CATPOR-ACC-03",
+      "title": "Probability 0 referencing cti (bstr)",
+      "category": "accept",
+      "claims_edn": "{309: [0, 7]}",
+      "expected": {
+        "access": "accept",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.7",
+        "reason": "Integer id references claim 7 (cti), which is present and a bstr."
+      }
+    },
+    {
+      "id": "CATPOR-ACC-04",
+      "title": "Probability 0 with past catpor expiry",
+      "category": "accept",
+      "claims_edn": "{309: [0, h'087ee44f239f7a2e34b3d1649aad8c1d', 1700000000]}",
+      "expected": {
+        "access": "accept",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.7",
+        "reason": "catpor-exp only bounds how long a blocked value is remembered (reuse blocking, out of scope); it does not make the token unacceptable."
+      }
+    },
+    {
+      "id": "CATPOR-ACC-05",
+      "title": "Probability 0 referencing a text-keyed bstr claim",
+      "category": "accept",
+      "claims_edn": "{\"ref\": h'0102030405', 309: [0, \"ref\"]}",
+      "expected": {
+        "access": "accept",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.7",
+        "reason": "catpor-id = label / bstr; label = int / tstr. The text label \"ref\" references a present bstr claim."
+      }
+    },
+    {
+      "id": "CATPOR-REJ-01",
+      "title": "Probability 1 with bstr id",
+      "category": "reject",
+      "claims_edn": "{309: [1, h'087ee44f239f7a2e34b3d1649aad8c1d']}",
+      "expected": {
+        "access": "reject",
+        "basis": "normative-text",
+        "spec_ref": "CTA-5007-B §4.6.7",
+        "reason": "'A catpor claim is rejected with probability equal to that value': 1 means always rejected."
+      }
+    },
+    {
+      "id": "CATPOR-REJ-02",
+      "title": "Probability 1 referencing cti",
+      "category": "reject",
+      "claims_edn": "{309: [1, 7]}",
+      "expected": {
+        "access": "reject",
+        "basis": "normative-text",
+        "spec_ref": "CTA-5007-B §4.6.7",
+        "reason": "Probability 1 with a valid cti reference: always rejected."
+      }
+    },
+    {
+      "id": "CATPOR-STAT-01",
+      "title": "Probability 0.5",
+      "category": "statistical",
+      "claims_edn": "{309: [0.5, h'087ee44f239f7a2e34b3d1649aad8c1d']}",
+      "expected": {
+        "access": "probabilistic",
+        "basis": "normative-text",
+        "spec_ref": "CTA-5007-B §4.6.7",
+        "reason": "Rejected with probability 0.5; check over many trials.",
+        "probability_of_rejection": 0.5
+      }
+    },
+    {
+      "id": "CATPOR-STAT-02",
+      "title": "Probability 0.25",
+      "category": "statistical",
+      "claims_edn": "{309: [0.25, h'087ee44f239f7a2e34b3d1649aad8c1d']}",
+      "expected": {
+        "access": "probabilistic",
+        "basis": "normative-text",
+        "spec_ref": "CTA-5007-B §4.6.7",
+        "reason": "Rejected with probability 0.25; check over many trials.",
+        "probability_of_rejection": 0.25
+      }
+    },
+    {
+      "id": "CATPOR-STAT-03",
+      "title": "Spec example probability 0.00005",
+      "category": "statistical",
+      "claims_edn": "{309: [0.00005, h'087ee44f239f7a2e34b3d1649aad8c1d', 1700000000]}",
+      "expected": {
+        "access": "probabilistic",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.7.1",
+        "reason": "The spec's own example value; 1 in 20,000 rejected.",
+        "probability_of_rejection": 5e-05
+      }
+    },
+    {
+      "id": "CATPOR-MAL-01",
+      "title": "Probability 1.5",
+      "category": "malformed",
+      "claims_edn": "{309: [1.5, h'087ee44f239f7a2e34b3d1649aad8c1d']}",
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.7",
+        "reason": "'A claim with a value greater than 1 or less than 0 is not well-formed and the token MUST be rejected.'"
+      }
+    },
+    {
+      "id": "CATPOR-MAL-02",
+      "title": "Probability -0.1",
+      "category": "malformed",
+      "claims_edn": "{309: [-0.1, h'087ee44f239f7a2e34b3d1649aad8c1d']}",
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.7",
+        "reason": "Probability below 0: not well-formed, MUST be rejected."
+      }
+    },
+    {
+      "id": "CATPOR-MAL-03",
+      "title": "Probability 2 (integer)",
+      "category": "malformed",
+      "claims_edn": "{309: [2, h'087ee44f239f7a2e34b3d1649aad8c1d']}",
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.7",
+        "reason": "Probability above 1: not well-formed, MUST be rejected."
+      }
+    },
+    {
+      "id": "CATPOR-MAL-04",
+      "title": "Missing id (one-element array)",
+      "category": "malformed",
+      "claims_edn": "{309: [0.5]}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.7; §4.3.1.2",
+        "reason": "catpor-value = [probability, id, ?exp]; id is required. (§4.6.7 prose also says 'The type of this claim is number'; the normative CDDL and the array description are followed.)"
+      }
+    },
+    {
+      "id": "CATPOR-MAL-05",
+      "title": "Reference to absent claim (cti omitted)",
+      "category": "malformed",
+      "claims_edn": "{309: [0, 7]}",
+      "base_omit": [
+        "cti"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.7; §4.3.1.2",
+        "reason": "'If another claim is referenced and that claim is not present ... the token is not well-formed.' Not well-formed -> not valid -> not acceptable (§4.3.1.2)."
+      }
+    },
+    {
+      "id": "CATPOR-MAL-06",
+      "title": "Reference to non-bstr claim (exp)",
+      "category": "malformed",
+      "claims_edn": "{309: [0, 4]}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.7; §4.3.1.2",
+        "reason": "Referenced claim 4 (exp) is an integer, not a byte string: not well-formed, so not valid (§4.3.1.2)."
+      }
+    },
+    {
+      "id": "CATPOR-MAL-07",
+      "title": "Text label reference to absent claim",
+      "category": "malformed",
+      "claims_edn": "{309: [0, \"cti\"]}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.7; §4.3.1.2",
+        "reason": "catpor-id = label / bstr; the text label \"cti\" references a claim keyed by text, which is not present: not well-formed."
+      }
+    },
+    {
+      "id": "CATPOR-MAL-08",
+      "title": "Not an array (bare number)",
+      "category": "malformed",
+      "claims_edn": "{309: 0.5}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.7; §4.3.1.2",
+        "reason": "catpor-value is an array per the normative CDDL. Note: §4.6.7 prose also says 'The type of this claim is number', and rust-cat's catpor::create emits a bare integer."
+      }
+    },
+    {
+      "id": "CATPOR-MAL-09",
+      "title": "Expiry is text",
+      "category": "malformed",
+      "claims_edn": "{309: [0, h'087ee44f239f7a2e34b3d1649aad8c1d', \"tomorrow\"]}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.7; §4.3.1.2",
+        "reason": "catpor-exp = numericdate (number)."
+      }
+    },
+    {
+      "id": "CATPOR-MAL-10",
+      "title": "Four members",
+      "category": "malformed",
+      "claims_edn": "{309: [0, h'087ee44f239f7a2e34b3d1649aad8c1d', 4102444800, 1]}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.7; §4.3.1.2",
+        "reason": "At most three members."
+      }
+    },
+    {
+      "id": "CATPOR-MAL-11",
+      "title": "Probability is text",
+      "category": "malformed",
+      "claims_edn": "{309: [\"0.5\", h'087ee44f239f7a2e34b3d1649aad8c1d']}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.7; §4.3.1.2",
+        "reason": "catpor-probability = number."
+      }
+    },
+    {
+      "id": "CATPOR-MAL-12",
+      "title": "Tagged value",
+      "category": "malformed",
+      "claims_edn": "{309: 1([0, h'087ee44f239f7a2e34b3d1649aad8c1d'])}",
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.7; §4.5",
+        "reason": "Improperly tagged claim value MUST be rejected."
+      }
+    },
+    {
+      "id": "CATPOR-MAL-13",
+      "title": "Probability negative zero (-0.0)",
+      "category": "malformed",
+      "claims_edn": "{309: [-0.0, h'087ee44f239f7a2e34b3d1649aad8c1d']}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.5; §4.3.1.2",
+        "reason": "'Floating-point NaN values and negative zero floating-point values are not valid values for any claim defined in this document.'"
+      }
+    },
+    {
+      "id": "CATPOR-MAL-14",
+      "title": "Probability NaN",
+      "category": "malformed",
+      "claims_edn": "{309: [NaN, h'087ee44f239f7a2e34b3d1649aad8c1d']}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.5; §4.3.1.2",
+        "reason": "NaN is not a valid value for any claim defined in CTA-5007-B."
+      }
+    },
+    {
+      "id": "CATPOR-MAL-15",
+      "title": "Probability +Infinity",
+      "category": "malformed",
+      "claims_edn": "{309: [Infinity, h'087ee44f239f7a2e34b3d1649aad8c1d']}",
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.7",
+        "reason": "Greater than 1: not well-formed and the token MUST be rejected."
+      }
+    },
+    {
+      "id": "CATPOR-ENC-01",
+      "title": "Probability 0 encoded as float 0.0",
+      "category": "encoding",
+      "claims_edn": "{309: [0.0, h'087ee44f239f7a2e34b3d1649aad8c1d']}",
+      "expected": {
+        "access": "undefined",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.5",
+        "reason": "Integral values MUST use major type 0/1; a non-deterministic CAT MAY be treated as ill-formed."
+      }
+    },
+    {
+      "id": "CATPOR-ENC-02",
+      "title": "Probability 0.5 encoded as double",
+      "category": "encoding",
+      "claims_edn": "{309: [0.5_3, h'087ee44f239f7a2e34b3d1649aad8c1d']}",
+      "expected": {
+        "access": "undefined",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.5",
+        "reason": "Not the preferred (shortest) float; MAY be treated as ill-formed."
+      }
+    }
+  ]
+}

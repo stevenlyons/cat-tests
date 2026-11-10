@@ -1,0 +1,116 @@
+{
+  "claim": "catv",
+  "claim_key": 310,
+  "ticket": "VCC-1476",
+  "rules_source": "CTA-5007-B §4.6.8",
+  "cases": [
+    {
+      "id": "CATV-ACC-01",
+      "title": "Version 1",
+      "category": "accept",
+      "claims_edn": "{310: 1}",
+      "expected": {
+        "access": "accept",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.8",
+        "reason": "catv MUST be 1."
+      }
+    },
+    {
+      "id": "CATV-ACC-02",
+      "title": "catv absent",
+      "category": "accept",
+      "claims_edn": "{}",
+      "expected": {
+        "access": "accept",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.8",
+        "reason": "'A token that does not use this claim can be assumed to be of version 1.'"
+      }
+    },
+    {
+      "id": "CATV-REJ-01",
+      "title": "Version 2",
+      "category": "reject",
+      "claims_edn": "{310: 2}",
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.8",
+        "reason": "'A recipient MUST reject a token with an unsupported version number.'"
+      }
+    },
+    {
+      "id": "CATV-REJ-02",
+      "title": "Version 0",
+      "category": "reject",
+      "claims_edn": "{310: 0}",
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.8",
+        "reason": "Unsupported version; also violates catv-value = 1."
+      }
+    },
+    {
+      "id": "CATV-MAL-01",
+      "title": "Text \"1\"",
+      "category": "malformed",
+      "claims_edn": "{310: \"1\"}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.8; §4.3.1.2",
+        "reason": "catv is an unsigned integer."
+      }
+    },
+    {
+      "id": "CATV-MAL-02",
+      "title": "Float 1.0",
+      "category": "malformed",
+      "claims_edn": "{310: 1.0}",
+      "expected": {
+        "access": "reject",
+        "basis": "interpretation",
+        "spec_ref": "CTA-5007-B §4.6.8; §4.5",
+        "reason": "Read as a type error: catv is an unsigned integer. Alternative reading: §4.5 numeric meaning makes this an encoding defect (MAY reject). Confirm."
+      }
+    },
+    {
+      "id": "CATV-MAL-03",
+      "title": "Negative -1",
+      "category": "malformed",
+      "claims_edn": "{310: -1}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.6.8; §4.3.1.2",
+        "reason": "Not a uint."
+      }
+    },
+    {
+      "id": "CATV-MAL-04",
+      "title": "Tagged 1(1)",
+      "category": "malformed",
+      "claims_edn": "{310: 1(1)}",
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.6.8; §4.5",
+        "reason": "Improperly tagged claim value MUST be rejected."
+      }
+    },
+    {
+      "id": "CATV-ENC-01",
+      "title": "Version 1 encoded non-shortest",
+      "category": "encoding",
+      "claims_edn": "{310: 1_0}",
+      "expected": {
+        "access": "undefined",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.5",
+        "reason": "Not deterministically encoded; MAY be treated as ill-formed."
+      }
+    }
+  ]
+}

@@ -1,0 +1,619 @@
+{
+  "claim": "catnetprint",
+  "claim_key": 324,
+  "ticket": "VCC-1396",
+  "rules_source": "rust-cat (Fastly decision): key 324, {0: FingerprintType int, 1: tstr}; value compared case-insensitively",
+  "cases": [
+    {
+      "id": "CATNETPRINT-ACC-01",
+      "title": "JA4 type and value match",
+      "category": "accept",
+      "claims_edn": "{324: {0: 2, 1: \"t13d1516h2_8daaf6152771_b186095e22b6\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 2,
+            "value": "t13d1516h2_8daaf6152771_b186095e22b6"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "Type equal and value equal."
+      }
+    },
+    {
+      "id": "CATNETPRINT-ACC-03",
+      "title": "Claim absent, no fingerprint (plain HTTP)",
+      "category": "accept",
+      "claims_edn": "{}",
+      "request": {
+        "tls": null
+      },
+      "needs": [
+        "plaintext"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "interpretation",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "No claim, nothing to check. Note rust-cat's verify_claims errors here when verify_cattprint is enabled without a fingerprint; that is a rust-cat quirk, not the expected behaviour."
+      }
+    },
+    {
+      "id": "CATNETPRINT-ACC-02",
+      "title": "Value differs only in letter case",
+      "category": "accept",
+      "claims_edn": "{324: {0: 2, 1: \"T13D1516H2_8DAAF6152771_B186095E22B6\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 2,
+            "value": "t13d1516h2_8daaf6152771_b186095e22b6"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "rust-cat compares the value case-insensitively (Fastly decision: keep)."
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-00",
+      "title": "Fingerprint type 0 (JA3) matches",
+      "category": "accept",
+      "claims_edn": "{324: {0: 0, 1: \"synthetic-ja3-fingerprint-value\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 0,
+            "value": "synthetic-ja3-fingerprint-value"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "One case per FingerprintType code. Value is synthetic (opaque string compare), not a real JA3 fingerprint."
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-01",
+      "title": "Fingerprint type 1 (JA3S) matches",
+      "category": "accept",
+      "claims_edn": "{324: {0: 1, 1: \"synthetic-ja3s-fingerprint-value\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 1,
+            "value": "synthetic-ja3s-fingerprint-value"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "One case per FingerprintType code. Value is synthetic (opaque string compare), not a real JA3S fingerprint."
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-02",
+      "title": "Fingerprint type 2 (JA4) matches",
+      "category": "accept",
+      "claims_edn": "{324: {0: 2, 1: \"synthetic-ja4-fingerprint-value\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 2,
+            "value": "synthetic-ja4-fingerprint-value"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "One case per FingerprintType code. Value is synthetic (opaque string compare), not a real JA4 fingerprint."
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-03",
+      "title": "Fingerprint type 3 (JA4S) matches",
+      "category": "accept",
+      "claims_edn": "{324: {0: 3, 1: \"synthetic-ja4s-fingerprint-value\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 3,
+            "value": "synthetic-ja4s-fingerprint-value"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "One case per FingerprintType code. Value is synthetic (opaque string compare), not a real JA4S fingerprint."
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-04",
+      "title": "Fingerprint type 4 (JA4H) matches",
+      "category": "accept",
+      "claims_edn": "{324: {0: 4, 1: \"synthetic-ja4h-fingerprint-value\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 4,
+            "value": "synthetic-ja4h-fingerprint-value"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "One case per FingerprintType code. Value is synthetic (opaque string compare), not a real JA4H fingerprint."
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-05",
+      "title": "Fingerprint type 5 (JA4L) matches",
+      "category": "accept",
+      "claims_edn": "{324: {0: 5, 1: \"synthetic-ja4l-fingerprint-value\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 5,
+            "value": "synthetic-ja4l-fingerprint-value"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "One case per FingerprintType code. Value is synthetic (opaque string compare), not a real JA4L fingerprint."
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-06",
+      "title": "Fingerprint type 6 (JA4X) matches",
+      "category": "accept",
+      "claims_edn": "{324: {0: 6, 1: \"synthetic-ja4x-fingerprint-value\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 6,
+            "value": "synthetic-ja4x-fingerprint-value"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "One case per FingerprintType code. Value is synthetic (opaque string compare), not a real JA4X fingerprint."
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-07",
+      "title": "Fingerprint type 7 (JA4SSH) matches",
+      "category": "accept",
+      "claims_edn": "{324: {0: 7, 1: \"synthetic-ja4ssh-fingerprint-value\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 7,
+            "value": "synthetic-ja4ssh-fingerprint-value"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "One case per FingerprintType code. Value is synthetic (opaque string compare), not a real JA4SSH fingerprint."
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-08",
+      "title": "Fingerprint type 8 (JA4T) matches",
+      "category": "accept",
+      "claims_edn": "{324: {0: 8, 1: \"synthetic-ja4t-fingerprint-value\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 8,
+            "value": "synthetic-ja4t-fingerprint-value"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "One case per FingerprintType code. Value is synthetic (opaque string compare), not a real JA4T fingerprint."
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-09",
+      "title": "Fingerprint type 9 (JA4TS) matches",
+      "category": "accept",
+      "claims_edn": "{324: {0: 9, 1: \"synthetic-ja4ts-fingerprint-value\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 9,
+            "value": "synthetic-ja4ts-fingerprint-value"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "One case per FingerprintType code. Value is synthetic (opaque string compare), not a real JA4TS fingerprint."
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-10",
+      "title": "Fingerprint type 10 (JA4TScan) matches",
+      "category": "accept",
+      "claims_edn": "{324: {0: 10, 1: \"synthetic-ja4tscan-fingerprint-value\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 10,
+            "value": "synthetic-ja4tscan-fingerprint-value"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "One case per FingerprintType code. Value is synthetic (opaque string compare), not a real JA4TScan fingerprint."
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-11",
+      "title": "Fingerprint type 11 (JA4D) matches",
+      "category": "accept",
+      "claims_edn": "{324: {0: 11, 1: \"synthetic-ja4d-fingerprint-value\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 11,
+            "value": "synthetic-ja4d-fingerprint-value"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "One case per FingerprintType code. Value is synthetic (opaque string compare), not a real JA4D fingerprint."
+      }
+    },
+    {
+      "id": "CATNETPRINT-TYPE-12",
+      "title": "Fingerprint type 12 (JA4D6) matches",
+      "category": "accept",
+      "claims_edn": "{324: {0: 12, 1: \"synthetic-ja4d6-fingerprint-value\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 12,
+            "value": "synthetic-ja4d6-fingerprint-value"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "One case per FingerprintType code. Value is synthetic (opaque string compare), not a real JA4D6 fingerprint."
+      }
+    },
+    {
+      "id": "CATNETPRINT-REJ-01",
+      "title": "Type mismatch (claim JA4, connection JA3)",
+      "category": "reject",
+      "claims_edn": "{324: {0: 2, 1: \"t13d1516h2_8daaf6152771_b186095e22b6\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 0,
+            "value": "t13d1516h2_8daaf6152771_b186095e22b6"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "Fingerprint type does not match."
+      }
+    },
+    {
+      "id": "CATNETPRINT-REJ-02",
+      "title": "Value mismatch",
+      "category": "reject",
+      "claims_edn": "{324: {0: 2, 1: \"t13d1516h2_8daaf6152771_000000000000\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 2,
+            "value": "t13d1516h2_8daaf6152771_b186095e22b6"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "Fingerprint value does not match."
+      }
+    },
+    {
+      "id": "CATNETPRINT-REJ-03",
+      "title": "No fingerprint available (plain HTTP)",
+      "category": "reject",
+      "claims_edn": "{324: {0: 2, 1: \"t13d1516h2_8daaf6152771_b186095e22b6\"}}",
+      "request": {
+        "tls": null
+      },
+      "needs": [
+        "plaintext"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "rust-cat returns an error when no fingerprint is supplied."
+      }
+    },
+    {
+      "id": "CATNETPRINT-REJ-04",
+      "title": "Unknown type code 99",
+      "category": "reject",
+      "claims_edn": "{324: {0: 99, 1: \"t13d1516h2_8daaf6152771_b186095e22b6\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 2,
+            "value": "t13d1516h2_8daaf6152771_b186095e22b6"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "99 is not a FingerprintType and cannot equal the connection's type."
+      }
+    },
+    {
+      "id": "CATNETPRINT-MAL-01",
+      "title": "Array instead of map",
+      "category": "malformed",
+      "claims_edn": "{324: [2, \"t13d1516h2_8daaf6152771_b186095e22b6\"]}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 2,
+            "value": "t13d1516h2_8daaf6152771_b186095e22b6"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "rust-cat: 'CATTPRINT claim is not a map'."
+      }
+    },
+    {
+      "id": "CATNETPRINT-MAL-02",
+      "title": "Missing fingerprint type",
+      "category": "malformed",
+      "claims_edn": "{324: {1: \"t13d1516h2_8daaf6152771_b186095e22b6\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 2,
+            "value": "t13d1516h2_8daaf6152771_b186095e22b6"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "rust-cat: 'Missing or invalid Fingerprint Type'."
+      }
+    },
+    {
+      "id": "CATNETPRINT-MAL-03",
+      "title": "Type as text \"JA4\"",
+      "category": "malformed",
+      "claims_edn": "{324: {0: \"JA4\", 1: \"t13d1516h2_8daaf6152771_b186095e22b6\"}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 2,
+            "value": "t13d1516h2_8daaf6152771_b186095e22b6"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "rust-cat requires an integer type."
+      }
+    },
+    {
+      "id": "CATNETPRINT-MAL-04",
+      "title": "Missing fingerprint value",
+      "category": "malformed",
+      "claims_edn": "{324: {0: 2}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 2,
+            "value": "t13d1516h2_8daaf6152771_b186095e22b6"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "rust-cat: 'Missing or invalid Fingerprint Value'."
+      }
+    },
+    {
+      "id": "CATNETPRINT-MAL-05",
+      "title": "Value as integer",
+      "category": "malformed",
+      "claims_edn": "{324: {0: 2, 1: 12345}}",
+      "request": {
+        "tls": {
+          "alpn": "h2",
+          "client_chain": [],
+          "fingerprint": {
+            "type": 2,
+            "value": "t13d1516h2_8daaf6152771_b186095e22b6"
+          }
+        }
+      },
+      "needs": [
+        "tls-fingerprint"
+      ],
+      "expected": {
+        "access": "reject",
+        "basis": "rust-cat",
+        "spec_ref": "rust-cat src/token.rs verify_cattprint_claim; src/constants.rs",
+        "reason": "rust-cat requires a text value."
+      }
+    }
+  ]
+}

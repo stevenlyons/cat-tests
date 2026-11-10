@@ -1,0 +1,492 @@
+{
+  "claim": "catr",
+  "claim_key": 323,
+  "ticket": "VCC-1479",
+  "rules_source": "CTA-5007-B §4.9.2",
+  "cases": [
+    {
+      "id": "CATR-ACC-01",
+      "title": "Automatic, token in header, inside deadline window",
+      "category": "accept",
+      "claims_edn": "{323: {0: 0, 1: 3600, 2: 4000000000}}",
+      "expected": {
+        "access": "accept",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.9.2",
+        "reason": "Access unaffected. Renewal via the same header (§4.9.2.1).",
+        "renewal_decision": "SHOULD renew"
+      }
+    },
+    {
+      "id": "CATR-ACC-02",
+      "title": "Automatic, token in cookie",
+      "category": "accept",
+      "claims_edn": "{323: {0: 0, 1: 3600, 2: 4000000000}}",
+      "request": {
+        "token_location": "cookie",
+        "token_name": "CAT"
+      },
+      "expected": {
+        "access": "accept",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.9.2.1",
+        "reason": "Renewed in a cookie named as the one it arrived in.",
+        "renewal_decision": "SHOULD renew"
+      }
+    },
+    {
+      "id": "CATR-ACC-03",
+      "title": "Automatic, token in URI",
+      "category": "accept",
+      "claims_edn": "{323: {0: 0, 1: 3600, 2: 4000000000}}",
+      "request": {
+        "token_location": "uri",
+        "token_name": "CAT",
+        "url": "https://cdn.cat-tests.example/content/index.m3u8?CAT=${token}"
+      },
+      "expected": {
+        "access": "accept",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.9.2.1",
+        "reason": "Renewed by redirect, default status 307.",
+        "renewal_decision": "SHOULD renew"
+      }
+    },
+    {
+      "id": "CATR-ACC-04",
+      "title": "Cookie renewal with name and parameters",
+      "category": "accept",
+      "claims_edn": "{323: {0: 1, 1: 3600, 2: 4000000000, 3: \"cat-renewed\", 5: [\"Secure\", \"HttpOnly\", \"Path=/content\"]}}",
+      "expected": {
+        "access": "accept",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.9.2.2",
+        "reason": "Set-Cookie named cat-renewed with the additional parameters.",
+        "renewal_decision": "SHOULD renew"
+      }
+    },
+    {
+      "id": "CATR-ACC-05",
+      "title": "Header renewal with name",
+      "category": "accept",
+      "claims_edn": "{323: {0: 2, 1: 3600, 2: 4000000000, 4: \"X-CAT-Renewed\"}}",
+      "expected": {
+        "access": "accept",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.9.2.3",
+        "reason": "Renewed token in header X-CAT-Renewed.",
+        "renewal_decision": "SHOULD renew"
+      }
+    },
+    {
+      "id": "CATR-ACC-06",
+      "title": "Header renewal, default name",
+      "category": "accept",
+      "claims_edn": "{323: {0: 2, 1: 3600, 2: 4000000000}}",
+      "expected": {
+        "access": "accept",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.9.2.3",
+        "reason": "No name: MUST use CTA-Common-Access-Token.",
+        "renewal_decision": "SHOULD renew"
+      }
+    },
+    {
+      "id": "CATR-ACC-07",
+      "title": "Redirect renewal, status 302, token in URI",
+      "category": "accept",
+      "claims_edn": "{323: {0: 3, 1: 3600, 2: 4000000000, 7: 302}}",
+      "request": {
+        "token_location": "uri",
+        "token_name": "CAT",
+        "url": "https://cdn.cat-tests.example/content/index.m3u8?CAT=${token}"
+      },
+      "expected": {
+        "access": "accept",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.9.2.4",
+        "reason": "Redirect with status 302.",
+        "renewal_decision": "SHOULD renew"
+      }
+    },
+    {
+      "id": "CATR-ACC-08",
+      "title": "Redirect renewal, default status",
+      "category": "accept",
+      "claims_edn": "{323: {0: 3, 1: 3600, 2: 4000000000}}",
+      "request": {
+        "token_location": "uri",
+        "token_name": "CAT",
+        "url": "https://cdn.cat-tests.example/content/index.m3u8?CAT=${token}"
+      },
+      "expected": {
+        "access": "accept",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.9.2.4",
+        "reason": "No status: MUST use 307.",
+        "renewal_decision": "SHOULD renew"
+      }
+    },
+    {
+      "id": "CATR-ACC-09",
+      "title": "No deadline",
+      "category": "accept",
+      "claims_edn": "{323: {0: 0, 1: 3600}}",
+      "expected": {
+        "access": "accept",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.9.2",
+        "reason": "No deadline: recipient MAY renew whenever it chooses.",
+        "renewal_decision": "MAY renew"
+      }
+    },
+    {
+      "id": "CATR-ACC-10",
+      "title": "Before the deadline window",
+      "category": "accept",
+      "claims_edn": "{323: {0: 0, 1: 3600, 2: 60}}",
+      "expected": {
+        "access": "accept",
+        "basis": "SHOULD NOT",
+        "spec_ref": "CTA-5007-B §4.9.2",
+        "reason": "Window opens 60 s before exp (2100): SHOULD NOT renew before then.",
+        "renewal_decision": "SHOULD NOT renew"
+      }
+    },
+    {
+      "id": "CATR-ACC-11",
+      "title": "Unknown renewal type 99",
+      "category": "accept",
+      "claims_edn": "{323: {0: 99, 1: 3600, 2: 4000000000}}",
+      "expected": {
+        "access": "accept",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.9.2.5",
+        "reason": "'If the renewal type is unknown, the recipient MUST ignore it. An unknown renewal type is not a reason for rejection by itself.' Ignoring the claim means it produces no renewal.",
+        "renewal_decision": "MUST NOT renew"
+      }
+    },
+    {
+      "id": "CATR-ACC-12",
+      "title": "Token without cti",
+      "category": "accept",
+      "claims_edn": "{323: {0: 0, 1: 3600, 2: 4000000000}}",
+      "base_omit": [
+        "cti"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.9.2",
+        "reason": "Renewed token MUST NOT contain a cti because the original has none.",
+        "renewal_decision": "SHOULD renew"
+      }
+    },
+    {
+      "id": "CATR-ACC-13",
+      "title": "49 members (private negative labels)",
+      "category": "accept",
+      "claims_edn": "{323: {0: 0, 1: 3600, 2: 4000000000, -1: 0, -2: 0, -3: 0, -4: 0, -5: 0, -6: 0, -7: 0, -8: 0, -9: 0, -10: 0, -11: 0, -12: 0, -13: 0, -14: 0, -15: 0, -16: 0, -17: 0, -18: 0, -19: 0, -20: 0, -21: 0, -22: 0, -23: 0, -24: 0, -25: 0, -26: 0, -27: 0, -28: 0, -29: 0, -30: 0, -31: 0, -32: 0, -33: 0, -34: 0, -35: 0, -36: 0, -37: 0, -38: 0, -39: 0, -40: 0, -41: 0, -42: 0, -43: 0, -44: 0, -45: 0, -46: 0}}",
+      "expected": {
+        "access": "accept",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.9.2",
+        "reason": "'Recipients MUST process tokens that contain fewer than 50 members of the catr map.' Negative labels are reserved for private use; automatic renewal MAY carry inappropriate parameters.",
+        "renewal_decision": "SHOULD renew"
+      }
+    },
+    {
+      "id": "CATR-ACC-14",
+      "title": "Automatic, token in custom header X-Token",
+      "category": "accept",
+      "claims_edn": "{323: {0: 0, 1: 3600, 2: 4000000000}}",
+      "request": {
+        "token_location": "header",
+        "token_name": "X-Token"
+      },
+      "expected": {
+        "access": "accept",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.9.2.1",
+        "reason": "'If a name parameter is not provided, the name parameter MUST be treated as though it contained the name of the header in which the token was parsed' -> renew in X-Token.",
+        "renewal_decision": "SHOULD renew"
+      }
+    },
+    {
+      "id": "CATR-ACC-15",
+      "title": "Automatic, token in cookie, with redirect status parameter",
+      "category": "accept",
+      "claims_edn": "{323: {0: 0, 1: 3600, 2: 4000000000, 7: 302}}",
+      "request": {
+        "token_location": "cookie",
+        "token_name": "CAT"
+      },
+      "expected": {
+        "access": "accept",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.9.2.1",
+        "reason": "Spec example: automatic renewal in a cookie MAY carry a status code parameter, which is ignored.",
+        "renewal_decision": "SHOULD renew"
+      }
+    },
+    {
+      "id": "CATR-ACC-16",
+      "title": "Automatic, token in cookie, with cookie name parameter",
+      "category": "accept",
+      "claims_edn": "{323: {0: 0, 1: 3600, 2: 4000000000, 3: \"cat-new\"}}",
+      "request": {
+        "token_location": "cookie",
+        "token_name": "CAT"
+      },
+      "expected": {
+        "access": "accept",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.9.2.1",
+        "reason": "Processed as cookie renewal; the name parameter is used: renew in cookie cat-new.",
+        "renewal_decision": "SHOULD renew"
+      }
+    },
+    {
+      "id": "CATR-NOR-01",
+      "title": "Deadline but no exp",
+      "category": "accept",
+      "claims_edn": "{323: {0: 0, 1: 3600, 2: 4000000000}}",
+      "base_omit": [
+        "exp"
+      ],
+      "expected": {
+        "access": "accept",
+        "basis": "MUST NOT",
+        "spec_ref": "CTA-5007-B §4.9.2",
+        "reason": "'If a renewal deadline is present, the token MUST also have an exp claim ... If it does not, the recipient MUST NOT renew the token.'",
+        "renewal_decision": "MUST NOT renew"
+      }
+    },
+    {
+      "id": "CATR-NOR-02",
+      "title": "Redirect renewal, token in header",
+      "category": "accept",
+      "claims_edn": "{323: {0: 3, 1: 3600, 2: 4000000000}}",
+      "expected": {
+        "access": "accept",
+        "basis": "MUST NOT",
+        "spec_ref": "CTA-5007-B §4.9.2.4",
+        "reason": "'If the token is not in the URI, a redirect renewal claim in that token MUST NOT be processed.'",
+        "renewal_decision": "MUST NOT renew"
+      }
+    },
+    {
+      "id": "CATR-NOR-03",
+      "title": "Automatic renewal with additional parameters",
+      "category": "accept",
+      "claims_edn": "{323: {0: 0, 1: 3600, 2: 4000000000, 5: [\"Secure\"]}}",
+      "expected": {
+        "access": "accept",
+        "basis": "interpretation",
+        "spec_ref": "CTA-5007-B §4.9.2.1",
+        "reason": "Issuer rule: 'A token with automatic renewal MUST not have an additional parameters parameter'. The recipient's handling is not stated; read as 'parameters not appropriate' -> MUST NOT renew. Confirm.",
+        "renewal_decision": "MUST NOT renew"
+      }
+    },
+    {
+      "id": "CATR-NOR-04",
+      "title": "Header renewal with a cookie-name parameter",
+      "category": "accept",
+      "claims_edn": "{323: {0: 2, 1: 3600, 2: 4000000000, 3: \"cat\"}}",
+      "expected": {
+        "access": "accept",
+        "basis": "MUST NOT",
+        "spec_ref": "CTA-5007-B §4.9.2",
+        "reason": "'A recipient MUST NOT renew a token based on a catr claim that has parameters that are not appropriate for the renewal type.'",
+        "renewal_decision": "MUST NOT renew"
+      }
+    },
+    {
+      "id": "CATR-NOR-05",
+      "title": "Cookie parameter with illegal ';'",
+      "category": "accept",
+      "claims_edn": "{323: {0: 1, 1: 3600, 2: 4000000000, 5: [\"Path=/;Domain=evil.example\"]}}",
+      "expected": {
+        "access": "accept",
+        "basis": "MUST NOT",
+        "spec_ref": "CTA-5007-B §4.9.2.2",
+        "reason": "Recipients MUST validate cookie parameters (RFC 6265 §5.2); if they cannot be safely added, MUST NOT renew.",
+        "renewal_decision": "MUST NOT renew"
+      }
+    },
+    {
+      "id": "CATR-NOR-06",
+      "title": "Otherwise unacceptable token (catm POST, request GET)",
+      "category": "reject",
+      "claims_edn": "{313: [\"POST\"], 323: {0: 0, 1: 3600, 2: 4000000000}}",
+      "expected": {
+        "access": "reject",
+        "basis": "MUST NOT",
+        "spec_ref": "CTA-5007-B §4.9.2; §4.6.11",
+        "reason": "Access rejected by catm; 'Recipients MUST NOT renew an unacceptable token.'",
+        "renewal_decision": "MUST NOT renew"
+      }
+    },
+    {
+      "id": "CATR-NOR-07",
+      "title": "Expired token with catr",
+      "category": "reject",
+      "claims_edn": "{4: 1700000000, 323: {0: 0, 1: 3600, 2: 4000000000}}",
+      "expected": {
+        "access": "reject",
+        "basis": "MUST NOT",
+        "spec_ref": "CTA-5007-B §4.9.2",
+        "reason": "Expired (exp 2023) so unacceptable; 'Recipients MUST NOT renew an unacceptable token.'",
+        "renewal_decision": "MUST NOT renew"
+      }
+    },
+    {
+      "id": "CATR-UND-01",
+      "title": "Redirect status 200",
+      "category": "undefined",
+      "claims_edn": "{323: {0: 3, 1: 3600, 2: 4000000000, 7: 200}}",
+      "request": {
+        "token_location": "uri",
+        "token_name": "CAT",
+        "url": "https://cdn.cat-tests.example/content/index.m3u8?CAT=${token}"
+      },
+      "expected": {
+        "access": "accept",
+        "basis": "undefined",
+        "spec_ref": "CTA-5007-B §4.9.2.4",
+        "reason": "Status MUST be 300-399, but the spec does not say what the recipient does with an invalid status. Access is unaffected; renewal is undefined.",
+        "renewal_decision": "undefined"
+      }
+    },
+    {
+      "id": "CATR-UND-02",
+      "title": "51 members",
+      "category": "undefined",
+      "claims_edn": "{323: {0: 0, 1: 3600, 2: 4000000000, -1: 0, -2: 0, -3: 0, -4: 0, -5: 0, -6: 0, -7: 0, -8: 0, -9: 0, -10: 0, -11: 0, -12: 0, -13: 0, -14: 0, -15: 0, -16: 0, -17: 0, -18: 0, -19: 0, -20: 0, -21: 0, -22: 0, -23: 0, -24: 0, -25: 0, -26: 0, -27: 0, -28: 0, -29: 0, -30: 0, -31: 0, -32: 0, -33: 0, -34: 0, -35: 0, -36: 0, -37: 0, -38: 0, -39: 0, -40: 0, -41: 0, -42: 0, -43: 0, -44: 0, -45: 0, -46: 0, -47: 0, -48: 0}}",
+      "expected": {
+        "access": "undefined",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.9.2",
+        "reason": "'Recipients MAY consider tokens with too many elements in a catr map ... to be invalid.' Only fewer than 50 MUST be processed.",
+        "renewal_decision": "undefined"
+      }
+    },
+    {
+      "id": "CATR-UND-03",
+      "title": "Exactly 50 members",
+      "category": "undefined",
+      "claims_edn": "{323: {0: 0, 1: 3600, 2: 4000000000, -1: 0, -2: 0, -3: 0, -4: 0, -5: 0, -6: 0, -7: 0, -8: 0, -9: 0, -10: 0, -11: 0, -12: 0, -13: 0, -14: 0, -15: 0, -16: 0, -17: 0, -18: 0, -19: 0, -20: 0, -21: 0, -22: 0, -23: 0, -24: 0, -25: 0, -26: 0, -27: 0, -28: 0, -29: 0, -30: 0, -31: 0, -32: 0, -33: 0, -34: 0, -35: 0, -36: 0, -37: 0, -38: 0, -39: 0, -40: 0, -41: 0, -42: 0, -43: 0, -44: 0, -45: 0, -46: 0, -47: 0}}",
+      "expected": {
+        "access": "undefined",
+        "basis": "MAY",
+        "spec_ref": "CTA-5007-B §4.9.2",
+        "reason": "Only 'fewer than 50' members MUST be processed (unlike catm/catalpn, which say 50 or fewer); 50 MAY be treated as invalid.",
+        "renewal_decision": "undefined"
+      }
+    },
+    {
+      "id": "CATR-MAL-01",
+      "title": "Missing renewal type",
+      "category": "malformed",
+      "claims_edn": "{323: {1: 3600}}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.9.2; §4.3.1.2",
+        "reason": "'The renewal type and expiration extension parameters MUST be present.'",
+        "renewal_decision": "MUST NOT renew"
+      }
+    },
+    {
+      "id": "CATR-MAL-02",
+      "title": "Missing expiration extension",
+      "category": "malformed",
+      "claims_edn": "{323: {0: 0}}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.9.2; §4.3.1.2",
+        "reason": "Expiration extension is required.",
+        "renewal_decision": "MUST NOT renew"
+      }
+    },
+    {
+      "id": "CATR-MAL-03",
+      "title": "Expiration extension is text",
+      "category": "malformed",
+      "claims_edn": "{323: {0: 0, 1: \"3600\"}}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.9.2; §4.3.1.2",
+        "reason": "renewal-expadd-value = number.",
+        "renewal_decision": "MUST NOT renew"
+      }
+    },
+    {
+      "id": "CATR-MAL-04",
+      "title": "Renewal type is text",
+      "category": "malformed",
+      "claims_edn": "{323: {0: \"automatic\", 1: 3600}}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.9.2; §4.3.1.2",
+        "reason": "renewal-type-value = int.",
+        "renewal_decision": "MUST NOT renew"
+      }
+    },
+    {
+      "id": "CATR-MAL-05",
+      "title": "Array instead of map",
+      "category": "malformed",
+      "claims_edn": "{323: [0, 3600]}",
+      "expected": {
+        "access": "reject",
+        "basis": "CDDL",
+        "spec_ref": "CTA-5007-B §4.9.2; §4.3.1.2",
+        "reason": "catr-value is a map.",
+        "renewal_decision": "MUST NOT renew"
+      }
+    },
+    {
+      "id": "CATR-MAL-06",
+      "title": "Cookie name is an integer",
+      "category": "malformed",
+      "claims_edn": "{323: {0: 1, 1: 3600, 3: 5}}",
+      "expected": {
+        "access": "reject",
+        "basis": "interpretation",
+        "spec_ref": "CTA-5007-B §4.9.2; §4.3.1.2",
+        "reason": "Intended type renewal-cookie-name-value = tstr. The catr CDDL is defective (renewal-name-label is never defined, so key 3 literally matches '* int => any'); the defined value types are applied. Confirm.",
+        "renewal_decision": "MUST NOT renew"
+      }
+    },
+    {
+      "id": "CATR-MAL-07",
+      "title": "Cookie params not an array",
+      "category": "malformed",
+      "claims_edn": "{323: {0: 1, 1: 3600, 5: \"Secure\"}}",
+      "expected": {
+        "access": "reject",
+        "basis": "interpretation",
+        "spec_ref": "CTA-5007-B §4.9.2; §4.3.1.2; §4.9.2.2",
+        "reason": "Intended type renewal-cookie-params-value = [ *tstr ] (§4.9.2.2: 'These members are text strings'). The catr CDDL is defective (renewal-params-label is never defined). Confirm.",
+        "renewal_decision": "MUST NOT renew"
+      }
+    },
+    {
+      "id": "CATR-MAL-08",
+      "title": "Tagged value",
+      "category": "malformed",
+      "claims_edn": "{323: 1({0: 0, 1: 3600})}",
+      "expected": {
+        "access": "reject",
+        "basis": "MUST",
+        "spec_ref": "CTA-5007-B §4.5",
+        "reason": "Improperly tagged claim value MUST be rejected.",
+        "renewal_decision": "MUST NOT renew"
+      }
+    }
+  ]
+}
